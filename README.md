@@ -17,6 +17,10 @@
   <img src="./System_Architecture_Diagram.png"  width="700"/>
 </p>
 
+<p align="center">
+  <em>Figure: High-level system architecture</em>
+</p>
+
 ---
 
 ## System Highlights
