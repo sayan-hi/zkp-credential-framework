@@ -12,7 +12,6 @@ env/
 ENV/
 .venv/
 
-
 # Build
 
 build/
@@ -69,16 +68,74 @@ outputs/
 *.csv
 *.xlsx
 
-
 #  Media 
 
 *.gif
-
-
-
 
 # Firebase
 
 .firebase/
 .firebaserc
 firebase-debug.log*
+firebase-debug.*.log*
+
+pids
+*.pid
+*.seed
+*.pid.lock
+
+lib-cov
+
+# Grunt intermediate storage
+
+.grunt
+
+# node-waf configuration
+
+.lock-wscript
+
+# Compiled binary addons
+
+build/Release
+
+# Dependency directories
+
+node_modules/
+
+# Optional npm cache directory
+
+.npm
+
+# Optional eslint cache
+
+.eslintcache
+
+# Optional REPL history
+
+.node_repl_history
+
+# Output of 'npm pack'
+
+*.tgz
+
+# Yarn Integrity file
+
+.yarn-integrity
+
+
+
+# dataconnect generated files
+
+.dataconnect
+
+
+
+
+
+
+
+
+
+
+
+
