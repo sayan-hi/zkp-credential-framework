@@ -97,7 +97,7 @@ All constructions rely on classical modular arithmetic and transparent primitive
 ### Revocation System
 
 <p align="center">
-  <img src="./Revocation_Mechanism_Diagram.png"  width="500" height="500"/>
+  <img src="./Revocation_Mechanism_Diagram.png"  width="500" height="700"/>
 </p>
 
 - RSA modulus generation (`rsa_setup.py`)
