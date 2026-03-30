@@ -361,6 +361,7 @@ This repository presents a fully functional cryptographic system built on standa
 
 ---
 
+:::writing{variant="standard" id="zkp10"}
 ## Citation
 
 If you use this work in research, publications, or projects, please cite:
@@ -369,6 +370,8 @@ If you use this work in research, publications, or projects, please cite:
 > *ZKP-Based Multi-System Attribute Verification Framework with Revocation*.  
 > GitHub Repository.  
 > Available at: https://github.com/sayan-hi/zkp-credential-framework  
+
+---
 
 ### BibTeX
 
