@@ -11,6 +11,9 @@
 
 ---
 
+## System Architecture
+
+![System Architecture](./System Architecture Diagram.png)
 ## System Highlights
 
 - No trusted setup required
