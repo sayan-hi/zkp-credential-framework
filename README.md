@@ -108,6 +108,7 @@ All constructions rely on classical modular arithmetic and transparent primitive
   <em>Figure 2: RSA accumulator-based revocation mechanism demonstrating mapping of credentials to prime representatives and efficient non-membership proof generation.</em>
 </p>
 
+
 - RSA modulus generation (`rsa_setup.py`)
 - RSA accumulator (`accumulator.py`)
 - Membership proofs (`membership.py`)
@@ -290,6 +291,7 @@ Execution flow:
 <p align="center">
   <em>Figure 3: End-to-end zero-knowledge verification pipeline showing credential issuance, commitment generation, proof construction, and verifier validation.</em>
 </p>
+
 ---
 
 ## 7. Performance Characteristics
