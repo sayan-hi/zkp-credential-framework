@@ -2,7 +2,7 @@
 ### Privacy-Preserving Credential Framework with Revocation
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![ZKP](https://img.shields.io/badge/zero--knowledge-proofs-deepred)
+![ZKP](https://img.shields.io/badge/zero--knowledge-proofs-brown)
 ![Cryptography](https://img.shields.io/badge/ZKP-Cryptography-purple)
 ![Status](https://img.shields.io/badge/Status-Research%20Prototype-darkgreen)
 ![Security](https://img.shields.io/badge/Security-2048--bit-critical)
