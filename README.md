@@ -372,7 +372,7 @@ This repository presents a fully functional cryptographic system built on standa
 
 ---
 
-:::writing{variant="standard" id="zkp10"}
+
 ## Citation
 Please provide proper attribution when referencing this work.
 
