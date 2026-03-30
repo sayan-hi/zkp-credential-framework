@@ -2,9 +2,10 @@
 ### Privacy-Preserving Credential Framework with Revocation
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Cryptography](https://img.shields.io/badge/ZKP-Cryptography-green)
-![Status](https://img.shields.io/badge/Status-Research%20Prototype-success)
-![Security](https://img.shields.io/badge/Security-2048--bit-orange)
+![ZKP](https://img.shields.io/badge/Zero-Knowledge-Proofs-green)
+![Cryptography](https://img.shields.io/badge/ZKP-Cryptography-purple)
+![Status](https://img.shields.io/badge/Status-Research%20Prototype-orange)
+![Security](https://img.shields.io/badge/Security-2048--bit-critical)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue)
 
 > Research Prototype | Cryptography | Zero-Knowledge Proofs
