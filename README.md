@@ -8,8 +8,8 @@
 ![Security](https://img.shields.io/badge/Security-2048--bit-critical)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue)
 
-
-><br>
+<br>
+>
 > Research Prototype | Cryptography | Zero-Knowledge Proofs
 ><br>
 >  A modular, end-to-end implementation of a zero-knowledge credential system enabling privacy-preserving verification, scoped unlinkability, and efficient revocation.
