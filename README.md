@@ -371,6 +371,7 @@ If you use this work in research, publications, or projects, please cite:
 > Available at: https://github.com/sayan-hi/zkp-credential-framework  
 
 ### BibTeX
+
 ```bibtex
 @misc{bairagi2026zkp,
   author       = {Sayan Bairagi},
@@ -381,7 +382,9 @@ If you use this work in research, publications, or projects, please cite:
   note         = {Zero-Knowledge Proof based Credential System with Revocation}
 }
 
+
 ---
+
 
 ## License
 
