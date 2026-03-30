@@ -23,6 +23,14 @@
 
 ---
 
+## ZKP Protocol Animation
+
+<img src="./zkp_animation.gif" width="800"/>
+
+<em>Figure 2: Animated visualization of the zero-knowledge protocol showing commitment, challenge, and verification phases.</em>
+
+---
+
 ## System Highlights
 
 - No trusted setup required
