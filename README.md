@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <em>Figure: High-level system architecture</em>
+  <em>Figure 1: High-level architecture of the ZKP-based multi-system attribute verification framework, illustrating issuer, holder, verifiers, and revocation registry interactions.</em>
 </p>
 
 ---
