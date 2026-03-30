@@ -14,7 +14,7 @@
 ## System Architecture
 
 <p align="center">
-  <img src="./System_Architecture_Diagram.png"  width="700"/>
+  <img src="./System_Architecture_Diagram.png"  width="500" height="500"/>
 </p>
 
 ---
