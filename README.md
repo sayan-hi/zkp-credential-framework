@@ -11,6 +11,16 @@
 
 ---
 
+## Academic Integrity Notice
+
+This repository contains original research work developed by **Sayan Bairagi**.
+
+Any use of this work in academic, research, or professional contexts must include proper attribution and citation.
+
+Unauthorized copying, plagiarism, or submission of this work without appropriate credit is strictly prohibited and may constitute academic misconduct.
+
+---
+
 ## System Architecture
 
 <p align="center">
@@ -363,6 +373,7 @@ This repository presents a fully functional cryptographic system built on standa
 
 :::writing{variant="standard" id="zkp10"}
 ## Citation
+Please provide proper attribution when referencing this work.
 
 If you use this work in research, publications, or projects, please cite:
 
@@ -380,9 +391,8 @@ If you use this work in research, publications, or projects, please cite:
   author       = {Sayan Bairagi},
   title        = {ZKP-Based Multi-System Attribute Verification Framework with Revocation},
   year         = {2026},
-  publisher    = {GitHub},
   howpublished = {https://github.com/sayan-hi/zkp-credential-framework},
-  note         = {Zero-Knowledge Proof based Credential System with Revocation}
+  note         = {Available at: https://github.com/sayan-hi/zkp-credential-framework}
 }
 ```
 
@@ -391,7 +401,14 @@ If you use this work in research, publications, or projects, please cite:
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
+
+You are free to use, modify, and distribute this software under the terms of the GPL-3.0 license.  
+However, any derivative work must also be distributed under the same license and must provide proper attribution to the original author.
+
+For full license details, see the [LICENSE](./LICENSE) file.
+
+© 2026 Sayan Bairagi. All rights reserved.
 
 ---
 
