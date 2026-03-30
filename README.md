@@ -9,6 +9,17 @@
 
 > A modular, end-to-end implementation of a zero-knowledge credential system enabling privacy-preserving verification, scoped unlinkability, and efficient revocation.
 
+---
+
+## System Highlights
+
+- No trusted setup required
+- Constant-size revocation proofs
+- Fully transparent cryptographic design
+- Practical and benchmarked implementation
+
+---
+
 ## 1. Executive Overview
 
 This repository contains a complete and operational prototype of a zero-knowledge credential system designed for privacy-preserving, multi-system attribute verification.
@@ -236,7 +247,7 @@ Execution flow:
 
 Under 2048-bit security parameters:
 
-- Verification latency remains in millisecond range
+- Verification latency remains in the millisecond range
 - Revocation verification cost independent of revoked set size
 - Presentation size ≈ 3 KB
 - RSA exponentiation dominates prover cost (expected under Strong RSA)
@@ -295,5 +306,8 @@ This project is licensed under the MIT License.
 ## Author
 
 **Sayan Bairagi**
+
 B.Tech Computer Science
+
+
 GitHub: https://github.com/sayan-hi
