@@ -25,7 +25,7 @@
 
 ## ZKP Protocol Animation
 
-<img src="./zkp_animation.gif" width="800"/>
+<img src="./zkp_animation.gif" width="500"/>
 
 <em>Figure 2: Animated visualization of the zero-knowledge protocol showing commitment, challenge, and verification phases.</em>
 
