@@ -13,7 +13,11 @@
 
 ## System Architecture
 
-![System Architecture](./System_Architecture_Diagram.png)
+<p align="center">
+  <img src="./System_Architecture_Diagram.png"  width="700"/>
+</p>
+
+---
 
 ## System Highlights
 
