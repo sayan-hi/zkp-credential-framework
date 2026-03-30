@@ -5,7 +5,7 @@
 ![Cryptography](https://img.shields.io/badge/ZKP-Cryptography-green)
 ![Status](https://img.shields.io/badge/Status-Research%20Prototype-success)
 ![Security](https://img.shields.io/badge/Security-2048--bit-orange)
-![License](https://img.shields.io/badge/License-MIT-blue)
+![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue)
 
 > A modular, end-to-end implementation of a zero-knowledge credential system enabling privacy-preserving verification, scoped unlinkability, and efficient revocation.
 
