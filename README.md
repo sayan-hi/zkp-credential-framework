@@ -113,7 +113,7 @@ All constructions rely on classical modular arithmetic and transparent primitive
 </p>
 
 <p align="center">
-  <em>Figure 2: RSA accumulator-based revocation mechanism demonstrating mapping of credentials to prime representatives and efficient non-membership proof generation.</em>
+  <em>Figure 3: RSA accumulator-based revocation mechanism demonstrating mapping of credentials to prime representatives and efficient non-membership proof generation.</em>
 </p>
 
 
@@ -297,7 +297,7 @@ Execution flow:
 </p>
 
 <p align="center">
-  <em>Figure 3: End-to-end zero-knowledge verification pipeline showing credential issuance, commitment generation, proof construction, and verifier validation.</em>
+  <em>Figure 4: End-to-end zero-knowledge verification pipeline showing credential issuance, commitment generation, proof construction, and verifier validation.</em>
 </p>
 
 ---
