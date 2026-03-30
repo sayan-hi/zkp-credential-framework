@@ -272,7 +272,7 @@ Execution flow:
 ## ZKP Verification Pipeline
 
 <p align="center">
-  <img src="./System_Architecture_Diagram.png"  width="700"/>
+  <img src="./Complete_ZKP_Verification_Pipeline_Diagram.png"  width="700"/>
 </p>
 
 ---
