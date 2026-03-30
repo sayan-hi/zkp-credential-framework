@@ -269,6 +269,14 @@ Execution flow:
 
 ---
 
+## ZKP Verification Pipeline
+
+<p align="center">
+  <img src="./System_Architecture_Diagram.png"  width="700"/>
+</p>
+
+---
+
 ## 7. Performance Characteristics
 
 Under 2048-bit security parameters:
