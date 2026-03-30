@@ -13,7 +13,8 @@
 
 ## System Architecture
 
-![System Architecture](./System Architecture Diagram.png)
+![System Architecture](./System_Architecture_Diagram.png)
+
 ## System Highlights
 
 - No trusted setup required
