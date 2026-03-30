@@ -7,6 +7,7 @@
 ![Security](https://img.shields.io/badge/Security-2048--bit-orange)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue)
 
+> Research Prototype | Cryptography | Zero-Knowledge Proofs
 > A modular, end-to-end implementation of a zero-knowledge credential system enabling privacy-preserving verification, scoped unlinkability, and efficient revocation.
 
 ---
@@ -37,7 +38,7 @@ Unauthorized copying, plagiarism, or submission of this work without appropriate
 
 <img src="./zkp_animation.gif" width="700"/>
 
-<em>Figure 2: Animated visualization of the zero-knowledge protocol showing commitment, challenge, and response phases.</em>
+<em><b>Figure 2: Animated visualization of the zero-knowledge protocol showing commitment, challenge, and response phases.</b></em>
 
 ---
 
@@ -123,7 +124,7 @@ All constructions rely on classical modular arithmetic and transparent primitive
 </p>
 
 <p align="center">
-  <em>Figure 3: RSA accumulator-based revocation mechanism demonstrating mapping of credentials to prime representatives and efficient non-membership proof generation.</em>
+  <em><b>Figure 3: RSA accumulator-based revocation mechanism demonstrating mapping of credentials to prime representatives and efficient non-membership proof generation.</b></em>
 </p>
 
 
@@ -308,7 +309,7 @@ Execution flow:
 </p>
 
 <p align="center">
-  <em>Figure 4: End-to-end zero-knowledge verification pipeline showing credential issuance, commitment generation, proof construction, and verifier validation.</em>
+  <em><b>Figure 4: End-to-end zero-knowledge verification pipeline showing credential issuance, commitment generation, proof construction, and verifier validation.</b></em>
 </p>
 
 ---
