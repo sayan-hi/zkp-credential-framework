@@ -23,7 +23,7 @@
 
 ---
 
-## ZKP Protocol Animation
+## ZKP Protocol Animation (Σ-Protocol)
 
 <img src="./zkp_animation.gif" width="500"/>
 
