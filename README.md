@@ -381,7 +381,7 @@ If you use this work in research, publications, or projects, please cite:
   title        = {ZKP-Based Multi-System Attribute Verification Framework with Revocation},
   year         = {2026},
   publisher    = {GitHub},
-  howpublished = {\url{https://github.com/sayan-hi/zkp-credential-framework}},
+  howpublished = {https://github.com/sayan-hi/zkp-credential-framework},
   note         = {Zero-Knowledge Proof based Credential System with Revocation}
 }
 ```
