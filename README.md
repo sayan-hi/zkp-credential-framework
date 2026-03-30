@@ -96,6 +96,10 @@ All constructions rely on classical modular arithmetic and transparent primitive
 
 ### Revocation System
 
+<p align="center">
+  <img src="./Revocation_Mechanism_Diagram.png"  width="700"/>
+</p>
+
 - RSA modulus generation (`rsa_setup.py`)
 - RSA accumulator (`accumulator.py`)
 - Membership proofs (`membership.py`)
