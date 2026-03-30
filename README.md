@@ -37,7 +37,7 @@
 - Constant-size revocation proofs
 - Fully transparent cryptographic design
 - Practical and benchmarked implementation
-
+- Scoped unlinkability across domains
 ---
 
 ## 1. Executive Overview
@@ -182,11 +182,11 @@ backend/
 │   └── issuer.py
 │
 ├── revocation/
-│   ├── accumulator.py
-│   ├── membership.py
-│   ├── non_membership.py
-│   ├── prime_representative.py
-│   └── rsa_setup.py
+│   ├── accumulator.py                # RSA accumulator logic
+│   ├── membership.py                 # Membership proofs
+│   ├── non_membership.py             # Revocation proofs
+│   ├── prime_representative.py       # Mapping logic
+│   └── rsa_setup.py                  # RSA parameter generation            
 │
 └── verifier/
 |    └── verifier.py
@@ -320,12 +320,16 @@ No trusted setup required.
 
 The architecture separates:
 
+- Privacy-first architecture
+- Modular and extensible design
+- Cryptographic transparency
 - Primitive implementation
 - Protocol logic
 - Identity abstraction
 - Revocation management
 - Ledger anchoring
 - Benchmarking
+- Real-world applicability
 
 This disciplined modularity enables:
 
@@ -354,6 +358,28 @@ This repository presents a fully functional cryptographic system built on standa
 - Anonymous authentication protocols  
 - Blockchain-based identity verification  
 - Secure multi-system access control
+
+---
+
+## Citation
+
+If you use this work in research, publications, or projects, please cite:
+
+> **Sayan Bairagi** (2026).  
+> *ZKP-Based Multi-System Attribute Verification Framework with Revocation*.  
+> GitHub Repository.  
+> Available at: https://github.com/sayan-hi/zkp-credential-framework  
+
+### BibTeX
+```bibtex
+@misc{bairagi2026zkp,
+  author       = {Sayan Bairagi},
+  title        = {ZKP-Based Multi-System Attribute Verification Framework with Revocation},
+  year         = {2026},
+  publisher    = {GitHub},
+  howpublished = {\url{https://github.com/sayan-hi/zkp-credential-framework}},
+  note         = {Zero-Knowledge Proof based Credential System with Revocation}
+}
 
 ---
 
