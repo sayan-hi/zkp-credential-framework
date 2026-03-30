@@ -403,7 +403,7 @@ If you use this work in research, publications, or projects, please cite:
 
 This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.
 
-You are free to use, modify, and distribute this software under the terms of the GPL-3.0 license.  
+You are free to use, modify, and distribute this work under the terms of the GPL-3.0 license.  
 However, any derivative work must also be distributed under the same license and must provide proper attribution to the original author.
 
 For full license details, see the [LICENSE](./LICENSE) file.
