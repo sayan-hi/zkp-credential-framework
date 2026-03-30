@@ -384,7 +384,7 @@ If you use this work in research, publications, or projects, please cite:
   howpublished = {\url{https://github.com/sayan-hi/zkp-credential-framework}},
   note         = {Zero-Knowledge Proof based Credential System with Revocation}
 }
-
+```
 
 ---
 
