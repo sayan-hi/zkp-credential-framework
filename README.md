@@ -296,11 +296,11 @@ This disciplined modularity enables:
 
 ## 9. Status
 
-  Fully implemented  
-  End-to-end operational  
-  Benchmarked  
-  Modular  
-  Extensible  
+  - Fully implemented  
+  - End-to-end operational  
+  - Benchmarked  
+  - Modular  
+  - Extensible  
 
 This repository presents a fully functional cryptographic system built on standard assumptions, avoiding reliance on opaque or trusted-setup-based proof systems.
 
