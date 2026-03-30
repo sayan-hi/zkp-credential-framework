@@ -9,7 +9,7 @@
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue)
 
 
->
+><br>
 > Research Prototype | Cryptography | Zero-Knowledge Proofs
 >
 >  A modular, end-to-end implementation of a zero-knowledge credential system enabling privacy-preserving verification, scoped unlinkability, and efficient revocation.
