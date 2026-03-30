@@ -114,10 +114,13 @@ Provides tamper-evident anchoring of revocation or credential events.
 
 ```
 ZKP_MultiSystem_Verification/
+backend/
 │
 ├── main.py                     # End-to-end execution pipeline
 ├── config.py                   # Global configuration
-├── README.md
+├── server.py
+├── demo_state.py
+├── requirements.txt
 │
 ├── benchmarks/
 │   └── benchmark.py
@@ -156,7 +159,22 @@ ZKP_MultiSystem_Verification/
 │   └── rsa_setup.py
 │
 └── verifier/
-    └── verifier.py
+|    └── verifier.py
+|
+frontend/
+|
+├── animation.html
+├── forgot.html
+├── index.html
+├── login.html
+├── register.html
+├── firebase.js
+├── firebase.json
+├── firestore.indexes.json
+├── package.json
+├── .firebaserc
+|
+functions/
 ```
 
 ---
@@ -306,7 +324,6 @@ This project is licensed under the MIT License.
 ## Author
 
 **Sayan Bairagi**
-
 B.Tech Computer Science
 
 
