@@ -483,11 +483,11 @@ Sigma protocols support powerful constructions:
 
 - **AND proofs** → prove multiple statements simultaneously
   <p align="center">
-  <img src="./images/and.png" width="600"/>
+  <img src="./images/sigma_protocol_and.png" width="600"/>
   </p>
 
   <p align="center">
-  <img src="./images/sigma_protocol_and.png" width="600"/>
+  <img src="./images/and.png" width="600"/>
   </p>
 
   <p align="center"><b><em>Figure 8: Σ-Protocol for discrete log (AND)</em></b></p>
