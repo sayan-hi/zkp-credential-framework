@@ -226,7 +226,33 @@ If valid then Accept (1),  else Reject (0)
 ---
 
 
-### Security Properties
+### Properties
+
+**Binding Property:** If 𝐷𝐿𝑜𝑔 assumption is true in 𝔾, then the 𝑃𝑒𝑑𝐶𝑜𝑚 satisfy the binding property.
+- Breaking the binding property for 𝑃𝑒𝑑𝐶𝑜𝑚 ⇒ computationally easy to find (𝛼, 𝛽) ≠ (𝛼', 𝛽′),
+- such that 𝐶𝑜𝑚𝑚𝑖𝑡(𝛼, 𝛽) = 𝐶 = 𝐶𝑜𝑚𝑚𝑖𝑡(𝛼', 𝛽′) with a non-negligible probability ⇒ computationally easy to find 𝐷𝑙𝑜𝑔<sub>g</sub>ℎ with a non-negligible probability.
+
+**Hiding Property:** Function Ped𝐶𝑜𝑚 satisfies hinding property, even against a computationally unbounded adversary.
+
+The element 𝐶 has a 𝑞 distinct represenations, relative to 𝑔 and ℎ, with each representation being equally probable.
+- For every candidate message 𝛼<sub>b</sub>, there exist a unique randomness 𝛽<sub>b</sub> ∈ ℤ<sub>q</sub>, such that 𝐶 = 𝐶𝑜𝑚𝑚𝑖𝑡(𝛼<sub>b</sub>, 𝛽<sub>b</sub>)
+- Actually randomness 𝛽 is selectd uniformly from ℤ<sub>q</sub>
+- 𝑃𝑟[𝛼<sub>0</sub> 𝑖𝑠 𝑐𝑜𝑚𝑚𝑖𝑡𝑡𝑒𝑑 𝑖𝑛 𝐶] = 1/q =𝑃𝑟[𝛼<sub>1</sub> 𝑖𝑠 𝑐𝑜𝑚𝑚𝑖𝑡𝑡𝑒𝑑 𝑖𝑛 𝐶 ∀𝛼<sub>0</sub>, 𝛼<sub>1</sub> ∈ ℤ<sub>q</sub>
+
++ The Pederson Commitment scheme is **linearly-homomorphic**
+  - Let 𝐶<sub>𝛼<sub>1</sub>,𝛽<sub>1</sub></sub> = 𝐶𝑜𝑚𝑚𝑖𝑡(𝛼<sub>1</sub>, 𝛽<sub>1</sub>) = 𝑔<sup>𝛼<sub>1</sub></sup> ℎ<sup>𝛽<sub>1</sub></sup>
+  - Let 𝐶<sub>𝛼<sub>2</sub>,𝛽<sub>2</sub></sub> = 𝐶𝑜𝑚𝑚𝑖𝑡(𝛼<sub>2</sub>, 𝛽<sub>2</sub>) = 𝑔<sup>𝛼<sub>2</sub></sup> ℎ<sup>𝛽<sub>2</sub></sup>
+  - Let c<sub>1</sub>,c<sub>2</sub> ∈  ℤ<sub>q</sub>
+
+  (C<sub>𝛼<sub>1</sub>,𝛽<sub>1</sub></sub>)<sup>c<sub>1</sub></sup> = (g<sup>𝛼<sub>1</sub></sup>h<sup>𝛽<sub>1</sub></sup>)<sup>c<sub>1</sub></sup> = g<sup>c<sub>1</sub>𝛼<sub>1</sub></sup>h<sup>c<sub>1</sub>𝛽<sub>1</sub></sup> = Commit(c<sub>1</sub>𝛼<sub>1</sub>,c<sub>1</sub>𝛽<sub>1</sub>)
+
+(C<sub>𝛼<sub>2</sub>,𝛽<sub>2</sub></sub>)<sup>c<sub>2</sub></sup> = (g<sup>𝛼<sub>2</sub></sup>h<sup>𝛽<sub>2</sub></sup>)<sup>c<sub>2</sub></sup> = g<sup>c<sub>2</sub>𝛼<sub>2</sub></sup>h<sup>c<sub>2</sub>𝛽<sub>2</sub></sup> = Commit(c<sub>2</sub>𝛼<sub>2</sub>,c<sub>2</sub>𝛽<sub>2</sub>)
+
+Then (C<sub>𝛼<sub>1</sub>,𝛽<sub>1</sub></sub>)<sup>c<sub>1</sub></sup> (C<sub>𝛼<sub>2</sub>,𝛽<sub>2</sub></sub>)<sup>c<sub>2</sub></sup> = g<sup>c<sub>1</sub>𝛼<sub>1</sub>+c<sub>2</sub>𝛼<sub>2</sub></sup>h<sup>c<sub>1</sub>𝛼<sub>1</sub>+c<sub>2</sub>𝛽<sub>2</sub></sup> = Commit(c<sub>1</sub>𝛼<sub>1</sub>+c<sub>2</sub>𝛼<sub>2</sub>,c<sub>1</sub>𝛼<sub>1</sub>+c<sub>2</sub>𝛽<sub>2</sub>)
+
+- Any linear function of committed values can be computed locally by performing some operation on Commitments.
+
+---
 
 ## Credential Lifecycle
 
