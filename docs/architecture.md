@@ -84,10 +84,25 @@ While RSA accumulators provide strong efficiency, alternative constructions such
 
 ---
 
+# Cryptographic Foundations
+
+This section presents the formal cryptographic primitives and protocols that enable privacy-preserving, secure, and unlinkable credential verification in the system.
+
+The construction combines:
+
+- Commitment schemes (Pedersen)
+- Sigma protocols (Zero-Knowledge Proofs)
+- Fiat–Shamir transformation (NIZK)
+- Accumulator-based revocation
+- Secure computation principles
+
+---
 
 ## Commitment Scheme
 
 **A commitment scheme allows a sender to commit to a value while keeping it hidden, with the ability to reveal it later.**
+
+### Formal Definition
 
 A commit ment scheme is tuple Γ = (𝑠𝑒𝑡𝑢𝑝, 𝐶𝑜𝑚𝑚𝑖𝑡, 𝑂𝑝𝑒𝑛) where:
 - S𝑒𝑡𝑢𝑝(1<sup>λ</sup>) → pp : It takes security parameter 𝜆 and generates the public parameters 𝑝𝑝
