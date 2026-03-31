@@ -350,7 +350,6 @@ This disciplined modularity enables:
 
 - Transparent security reasoning
 - Reproducibility
-- Extension in Phase II
 - Clean formal modeling in future work
 
 ---
