@@ -89,6 +89,10 @@ While RSA accumulators provide strong efficiency, alternative constructions such
 
 A commitment scheme allows a sender to commit to a value while keeping it hidden, with the ability to reveal it later.
 
+A commit ment scheme is tuple Γ = (𝑠𝑒𝑡𝑢𝑝, 𝐶𝑜𝑚𝑚𝑖𝑡, 𝑂𝑝𝑒𝑛) where:
+- S𝑒𝑡𝑢𝑝 (1^λ) → pp : It takes security parameter 𝜆 and generates the public parameters 𝑝𝑝
+- 𝐶𝑜𝑚𝑚𝑖𝑡 (𝑝𝑝, 𝑚) → (𝐶, 𝑟) : Takes a secret message 𝑚 and output a public commitment 𝐶 and (optionally) a secret opening hint 𝑟 (which might or might not be the randomness used in the computation)
+  
 ---
 
 ### Basic Idea
@@ -96,7 +100,14 @@ A commitment scheme allows a sender to commit to a value while keeping it hidden
 Two entities: A sender S and a receiver R
 - A commitment phase → protocol Com
 - An opening phase → protocol Open
+  
 S has a private message m which it want to commit to R
+
+<p align="center">
+   <img src="./images/commitment_overview.png" width="600"/>
+</p>
+
+<p align="center"><em>Figure 1: Basic structure of a commitment scheme showing sender (S) and receiver (R)</em></p>
 
 ## Credential Lifecycle
 
