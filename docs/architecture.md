@@ -541,7 +541,8 @@ Traditional identity architectures suffer from severe privacy limitations:
 - **Over-disclosure**: Entire identity revealed for minimal requirements  
 - **Linkability**: Repeated usage enables cross-service tracking  
 - **Data accumulation**: Verifiers build user profiles over time  
-- **Loss of control**: Users cannot restrict downstream data usage  
+- **Loss of control**: Users cannot restrict downstream data usage
+- **Centralized control**: Identity providers observe user behavior    
 
 These issues have been observed in real-world incidents involving centralized identity systems and large-scale data leaks.
 
@@ -551,6 +552,16 @@ This framework addresses these challenges through:
 - **Scoped unlinkability across domains**  
 - **Zero disclosure of raw attributes**  
 - **Decentralized verification without identity exposure**
+
+---
+
+##  Real-World Failures
+
+- Aadhaar data exposure incidents  
+- Cambridge Analytica data misuse  
+- Equifax large-scale data breach  
+
+In all cases, users **lost control after sharing data**
 
 ---
 
@@ -566,8 +577,23 @@ The system considers the following adversaries:
 
 ---
 
+## Attacks Considered
+
+The system is designed against:
+
+- **Replay Attacks** → reuse of valid proofs  
+- **Correlation Attacks** → linking across services  
+- **Verifier Collusion** → cross-verifier tracking  
+- **Metadata Leakage** → inference via auxiliary data  
+- **Attribute Inference** → partial disclosure exploitation  
+
+---
+
 ## Privacy and Security Guarantees
 
+- **Selective Disclosure**  
+  Only required attributes are proven
+    
 - **Attribute Privacy**  
   No information about \( m \) is revealed beyond the proven predicate  
 
@@ -582,6 +608,19 @@ The system considers the following adversaries:
 
 - **Cryptographic Integrity**  
   Security reduces to standard hardness assumptions  
+
+---
+
+
+## Limitations
+
+ZKP does NOT inherently solve:
+
+- Verifier misuse of valid outputs  
+- Incorrect attribute issuance by issuer  
+- Network-level metadata leakage  
+
+These require **policy, governance, and network-layer solutions**
 
 ---
 
@@ -610,6 +649,17 @@ Potential extensions include:
 
 - **Extensibility**  
   Compatible with decentralized identity and blockchain systems  
+
+---
+
+# Real-World Adoption
+
+Zero-Knowledge technologies are actively deployed in:
+
+- **Zcash** → shielded transactions  
+- **Polygon zkEVM / StarkNet** → scalable blockchain execution  
+- **EU Digital Identity Wallet (EUDI)** → privacy-preserving identity  
+- **Google Wallet** → selective disclosure (age verification)  
 
 ---
 
