@@ -349,6 +349,69 @@ Component-wise multiplication gives:
 
 ---
 
+# Zero-Knowledge Proof (ZKP)
+
+Zero-knowledge proof (ZKP) is a cryptographic method used to prove knowledge about a secret data, without revealing the data itself.
+
+## Properties
+- Completeness : An honest prover succeeds in convincing the verifier.
+- Soundness : A corrupt prover (without witness) fails with high probability.
+- Zero-Knowledge : A corrupt verifier fails to learn more from the proof.
+- Knowledge Soundness : If P succeeds, ∃ a PPT algorithm Ext that can ‘extract’ the witness.
+
+## Protocol Flow
+
+The protocol follows a 3-step interaction:
+
+1. **Commitment (a)**
+   Prover computes a commitment using randomness and secret witness.
+
+2. **Challenge (e)**  
+   Verifier sends a random challenge (public-coin model).
+
+3. **Response (z)**  
+   Prover responds using both randomness and witness.
+
+4. **Verification**  
+   Verifier checks correctness → Accept / Reject.
+
+
+
+- **Statement (x)** → public input  
+- **Witness (w)** → secret known only to prover  
+- **Relation (R)** → defines validity condition 
+
+Prove:
+
+I know w such that R(x, w) = 1
+
+---
+
+## Fiat–Shamir Transformation (NIZK)
+
+Interactive ZKP can be transformed into a **Non-Interactive Zero-Knowledge Proof (NIZK)** using a cryptographic hash function:
+
+\[
+c = H(t)
+\]
+
+This eliminates interaction, making proofs:
+
+- Publicly verifiable  
+- Suitable for blockchain systems  
+- Efficient for distributed environments
+
+**Setup:**
+
+Public CRS/SRS generated once (trusted setup or transparent)
+
+**Holder:** 
+
+π = Prove(pk, w, x) → single artifact, no interaction
+
+**Verifier:**
+
+b = Verify(vk, π, x) → {0,1} async, offline OK
 
 ## Credential Lifecycle
 
