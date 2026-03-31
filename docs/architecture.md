@@ -175,13 +175,13 @@ For any 𝑢 ∈ 𝔾 a pair (𝛼, 𝛽) ∈ ℤ<sub>q</sub><sup>2</sup> is cal
 
 ### Commitment Function
 
-                                           C = g<sup>𝛼</sup> h<sup>𝛽</sup>
+ C = g<sup>𝛼</sup> h<sup>𝛽</sup>
 
 - 𝛼 → message
 - 𝛽 → randomness
 - Provides **perfect hiding** and **computational binding**
 
-                                                    𝑪𝒐𝒎𝒎𝒊𝒕(𝒑𝒑, 𝜶, 𝜷) → 𝑪
+                                                      𝑪𝒐𝒎𝒎𝒊𝒕(𝒑𝒑, 𝜶, 𝜷) → 𝑪
 
 <p align="center">
    <img src="./images/pedersen_commit.png" width="600"/>
