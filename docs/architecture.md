@@ -477,6 +477,26 @@ Let:
 
 ---
 
+## Advanced Capabilities
+
+Sigma protocols support powerful constructions:
+
+- **AND proofs** → prove multiple statements simultaneously
+  <p align="center">
+  <img src="./images/and.png" width="600"/>
+  </p>
+
+  <p align="center">
+  <img src="./images/sigma_protocol_and.png" width="600"/>
+  </p>
+
+  <p align="center"><b><em>Figure 8: Σ-Protocol for discrete log (AND)</em></b></p>
+- **OR proofs** → prove knowledge of one among many  
+- **Vector proofs** → multi-attribute verification  
+- **Proof compression** → reduced communication cost
+
+---
+
 ## Credential Lifecycle
 
 1. **Credential Issuance**  
