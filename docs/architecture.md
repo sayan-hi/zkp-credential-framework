@@ -443,14 +443,14 @@ Let:
 ### Steps:
 
 - **Commitment:**  
-  \[
+  
   t = g^r
-  \]
+  
 
 - **Challenge:**  
-  \[
+
   c ∈ Z<sub>q</sub>
-  \]
+  
 
 - **Response:**  
   \[
@@ -458,9 +458,9 @@ Let:
   \]
 
 - **Verification:**  
-  \[
+
   $g<sup>s</sup> \stackrel{?}{=} t · y<sup>c</sup>$
-  \]
+  
 
 ---
 
