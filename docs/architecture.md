@@ -459,7 +459,7 @@ Let:
 
 - **Verification:**  
 
-  $g<sup>s</sup> \stackrel{?}{=} t · y<sup>c</sup>$
+  g<sup>s</sup> ?= t · y<sup>c</sup>
   
 
 ---
