@@ -152,7 +152,17 @@ S has a private message m which it want to commit to R
 
 **Hiding:** A 𝑐𝑜𝑚𝑚𝑖𝑡𝑚𝑒𝑛𝑡 𝑠𝑐ℎ𝑒𝑚𝑒 Γ is hiding if for any polynomial-time asversary 𝐴 the following probability is negligible in 𝜆:
 
+<p align="center">
+   <img src="./images/hiding.png" width="600"/>
+</p>
+
 **Binding:** A 𝑐𝑜𝑚𝑚𝑖𝑡𝑚𝑒𝑛𝑡 𝑠𝑐ℎ𝑒𝑚𝑒 Γ is binding if for any polynomial-time asversary 𝐴 the following probability is negligible in 𝜆:
+
+<p align="center">
+   <img src="./images/binding.png" width="600"/>
+</p>
+
+---
 
 ## Mathematical Background
 
