@@ -429,7 +429,7 @@ Sigma protocols are a class of *3-move public-coin Zero-Knowledge Proofs* charac
 <p align="center">
   <img src="./images/sigma_protocol.png" width="600"/>
   <br>
-  <em>Figure 5: Sigma protocol structure for Zero-Knowledge Proof of knowledge</em>
+  <b><em>Figure 7: Sigma protocol structure for Zero-Knowledge Proof of knowledge</em></b>
 </p>
 
 ---
