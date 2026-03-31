@@ -193,7 +193,7 @@ For any 𝑢 ∈ 𝔾 a pair (𝛼, 𝛽) ∈ ℤ<sub>q</sub><sup>2</sup> is cal
 
 ### Opening Function
 
-                                                    𝑶𝒑𝒆𝒏(𝒑𝒑, 𝑪, 𝜶′, 𝜷′) → 𝐛
+                                                      𝑶𝒑𝒆𝒏(𝒑𝒑, 𝑪, 𝜶′, 𝜷′) → 𝐛
 
 <p align="center">
    <img src="./images/pedersen_open.png" width="600"/>
@@ -205,7 +205,7 @@ Receiver checks:
 
 $C \stackrel{?}{=} g^{𝛼} h^{𝛽}$
 
-If valid then Accept (1), else Reject (0)
+If valid then Accept (1),  else Reject (0)
 
 ---
 
