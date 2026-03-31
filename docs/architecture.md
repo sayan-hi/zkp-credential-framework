@@ -254,6 +254,82 @@ Then (C<sub>𝛼<sub>1</sub>,𝛽<sub>1</sub></sub>)<sup>c<sub>1</sub></sup> (C<
 
 ---
 
+## Homomorphic Encryption
+
+### ***Motivation**
+  
+  - Need to compute on encrypted data
+  - Protect data privacy in cloud computation
+  - Enable secure outsourcing of computation
+    
+### **What is Homomorphic Encryption?**
+
+- Encryption allowing computation on ciphertexts
+- Operations on ciphertext translate to operations on plaintext
+- Decrypt(result) = f(plaintexts)
+
+**Definition:** Homomorphic Encryption is an encryption consist of stander algorithms HE = KeyGen, Enc, Dec with an additional evaluation algorithm 𝐸𝑣𝑎𝑙.
+- If we have a function 𝑓 and ciphertext 𝑐<sub>1</sub>, 𝑐<sub>2</sub>, … , 𝑐<sub>n</sub> that encrypt message 𝑚<sub>1</sub>, 𝑚<sub>2</sub>, … , 𝑚<sub>n</sub> the scheme is homomorphic if
+  
+            𝐷𝑒𝑐(𝐸𝑣𝑎𝑙(𝑓, 𝑐<sub>1</sub>, 𝑐<sub>2</sub>, … , 𝑐<sub>n</sub>)) = 𝑓(𝑚<sub>1</sub>, 𝑚<sub>2</sub>, … , 𝑚<sub>n</sub>)
+  
+o 𝐸𝑛𝑐(𝑚<sub>1</sub>) ⊕ 𝐸𝑛𝑐(𝑚<sub>2</sub>) → 𝐸𝑛𝑐(𝑚<sub>1</sub> + 𝑚<sub>2</sub>)
+o 𝐸𝑛𝑐(𝑚<sub>1</sub>) ⊗ 𝐸𝑛c(𝑚<sub>2</sub>) → 𝐸𝑛𝑐(𝑚<sub>1</sub> × 𝑚<sub>2</sub>)
+o No need to decrypt during computation
+
+### **Types of Homomorphic Encryption**
+- Partially Homomorphic Encryption (PHE)
+- Somewhat Homomorphic Encryption (SHE)
+- Fully Homomorphic Encryption (FHE)
+
+### **Partially Homomorphic Encryption(PHE)**
+
+Partial homomorphic encryption permits for a particular sort of operation to be carried out on the encrypted information while keeping the encryption.
++ Example:
+- **Additive Homomorphism:** This allows for addition encrypted values. Given encrypted values '𝐸𝑛𝑐(𝑎)' and '𝐸𝑛𝑐(𝑏)', you could compute '𝐸𝑛𝑐(𝑎 + 𝑏)' without decryption.
+- **Multiplicative Homomorphism:** This enables multiplication of encrypted values. Given encrypted values '𝐸𝑛𝑐(𝑎)' and '𝐸𝑛𝑐(𝑏)', you could compute '𝐸𝑛𝑐(𝑎 ∗ 𝑏)' with out decryption.
+
+### **Somewhat Homomorphic Encryption (SHE)**
+
+Somewhat homomorphic encryption permits for a limited wide variety of operations to be carried out on encrypted statistics.
++ Example:
+- SHE schemes include the Paillier cryptosystem, which helps additive homomorphism
+
+### **Fully Homomorphic Encryption (FHE)**
+
+Fully homomorphic encryption is the maximum powerful type, allowing for both addition and multiplication operations on encrypted information.
++ Example:
+  - Gentry-BGV scheme and the Dijk-Gentry-Halevi-Vaikuntanathan (DGHV) scheme.
+
+### **Appltcation**
+- Secure cloud computing
+- Private machine learning
+- Electronic voting
+- Privacy-preserving data analytics
+
+### **Challenges**
+- High computational overhead
+-  Large ciphertext size
+- Complex parameter tuning
+
+### **Examples**
++ **ElGamal Encryption:** EE = (KayGen, Enc, Dec)
+- Let 𝔾 = ⟨𝑔⟩ be a cyclic group of order 𝑞.
+- 𝐾𝑒𝑦𝐺𝑒𝑛(1<sup>λ</sup>) → (𝑝𝑘, 𝑠𝑘): 𝑠𝑘 ← $ ℤ<sub>q</sub> , 𝑝𝑘 = 𝑔<sup>sk</sup>
+- For 𝑚 ∈ 𝔾, 𝐸𝑛𝑐(𝑚, 𝑝𝑘) → 𝐶: 𝑟 ← $ ℤ<sub>q</sub>, 𝑐<sub>1</sub> = 𝑔<sup>r</sup>, 𝑐<sub>2</sub> =𝑚. 𝑝𝑘<sup>r</sup>, 𝐶 = (𝑐<sub>1</sub>, 𝑐<sub>2</sub>)
+- 𝐷𝑒𝑐(𝐶, 𝑠𝑘) → 𝑚: 𝑚 = c<sub>2</sub>/c<sub>1</sub><sup>sk</sk>
+
++ **Homomorphic Property:**
+- ElGamal is multiplicatively homomorphic
+- 𝐸𝑛𝑐(𝑚<sub>1</sub>, 𝑝𝑘) = (𝑔<sup>r<sub>1</sub></sup>, 𝑚<sub>1</sub> · 𝑝𝑘<sup>r<sub>1</sub></sup>)
+- 𝐸𝑛𝑐(𝑚<sub>2</sub>, 𝑝𝑘) = (𝑔<sup>r<sub>2</sub></sup>, 𝑚<sub>2</sub> · 𝑝𝑘<sup>r<sub>2</sub></sup>)
+
+Component-wise multiplication gives:
+- (𝑔<sup>(r<sub>1</sub>+r<sub>2</sub>)</sup> , 𝑚<sub>1</sub>. 𝑚<sub>2</sub> · 𝑝𝑘<sup>(r<sub>1</sub>+r<sub>2</sub>)</sup>) = 𝐸𝑛𝑐(𝑚<sub>1</sub> · 𝑚<sub>2</sub>)
+
+---
+
+
 ## Credential Lifecycle
 
 1. **Credential Issuance**  
