@@ -419,7 +419,7 @@ b = Verify(vk, π, x) → {0,1} async, offline OK
 Sigma protocols are a class of *3-move public-coin Zero-Knowledge Proofs* characterized by their simple and efficient structure:
 
 \[
-\text{Commit} → \text{Challenge} → \text{Response}
+Commit → Challenge → Response
 \]
 
 ---
@@ -428,9 +428,8 @@ Sigma protocols are a class of *3-move public-coin Zero-Knowledge Proofs* charac
 
 <p align="center">
   <img src="./images/sigma_protocol.png" width="600"/>
-  <br>
-  <b><em>Figure 7: Sigma protocol structure for Zero-Knowledge Proof of knowledge</em></b>
 </p>
+<p align="center"><b><em>Figure 7: Sigma protocol structure for Zero-Knowledge Proof of knowledge</em></b></p>
 
 ---
 
