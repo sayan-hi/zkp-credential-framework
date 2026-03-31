@@ -114,23 +114,38 @@ S has a private message m which it want to commit to R
 ### Commitment Phase (Com)
 
 - Sender commits to a message 'm'
-- Computes commitment 'C'
+- Computes commitment 'c' of 'm' and send it to receiver (R)
 
 <p align="center">
    <img src="./images/commit_phase.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 2: Commitment phase where the sender computes and sends commitment C without revealing message m</em></b></p>
+<p align="center"><b><em>Figure 2: Commitment phase where the sender computes and sends commitment c without revealing message m</em></b></p>
 
-- Sends 'C' to receiver
+- Sends 'c' to receiver
 - Message remains hidden
 
 <p align="center">
    <img src="./images/commitment_receive.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 3: The receiver receives the commitment C from sender</em></b></p>
+<p align="center"><b><em>Figure 3: The receiver receives the commitment c from the sender</em></b></p>
 
+---
+
+### Opening Phase (Open)
+
+- Sender reveals '(m,r)'
+- Receiver verifies commitment
+- If valid then accept
+
+<p align="center">
+   <img src="./images/open_phase.png" width="600"/>
+</p>
+
+<p align="center"><b><em>Figure 4: Opening phase where the sender reveals (m,r) and the receiver verifies correctness</em></b></p>
+
+---
 
 
 ## Credential Lifecycle
