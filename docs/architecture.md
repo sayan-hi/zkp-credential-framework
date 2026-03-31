@@ -90,10 +90,10 @@ While RSA accumulators provide strong efficiency, alternative constructions such
    The issuer commits to user attributes and signs them to produce a verifiable credential.
 
 2. **Proof Generation**  
-   The holder generates a zero-knowledge proof \( \pi \) demonstrating a predicate over committed attributes.
+   The holder generates a zero-knowledge proof \( π \) demonstrating a predicate over committed attributes.
 
 3. **Verification**  
-   The verifier checks the validity of \( \pi \) without accessing sensitive data.
+   The verifier checks the validity of \( π \) without accessing sensitive data.
 
 4. **Revocation Check**  
    The system verifies non-membership in the revocation accumulator.
