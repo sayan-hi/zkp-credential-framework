@@ -412,6 +412,72 @@ Public CRS/SRS generated once (trusted setup or transparent)
 
 b = Verify(vk, π, x) → {0,1} async, offline OK
 
+---
+
+# Sigma Protocol
+
+Sigma protocols are a class of *3-move public-coin Zero-Knowledge Proofs* characterized by their simple and efficient structure:
+
+\[
+\text{Commit} → \text{Challenge} → \text{Response}
+\]
+
+---
+
+## Protocol Flow
+
+<p align="center">
+  <img src="./images/sigma_protocol.png" width="600"/>
+  <br>
+  <em>Figure 5: Sigma protocol structure for Zero-Knowledge Proof of knowledge</em>
+</p>
+
+---
+
+## Example: Discrete Logarithm Proof
+
+Let:
+
+- Statement: \( y = g^w \)  
+- Witness: \( w \)
+
+### Steps:
+
+- **Commitment:**  
+  \[
+  t = g^r
+  \]
+
+- **Challenge:**  
+  \[
+  c \in \mathbb{Z}_q
+  \]
+
+- **Response:**  
+  \[
+  s = r + c \cdot w
+  \]
+
+- **Verification:**  
+  \[
+  g^s \stackrel{?}{=} t \cdot y^c
+  \]
+
+---
+
+## Security Guarantees
+
+- **Completeness**  
+  Honest prover always succeeds  
+
+- **Special Soundness**  
+  Two valid transcripts allow extraction of the witness  
+
+- **Honest-Verifier Zero-Knowledge (HVZK)**  
+  A simulator can generate indistinguishable transcripts  
+
+---
+
 ## Credential Lifecycle
 
 1. **Credential Issuance**  
