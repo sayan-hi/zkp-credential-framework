@@ -271,7 +271,7 @@ Then (C<sub>𝛼<sub>1</sub>,𝛽<sub>1</sub></sub>)<sup>c<sub>1</sub></sup> (C<
 **Definition:** Homomorphic Encryption is an encryption consist of stander algorithms HE = (KeyGen, Enc, Dec) with an additional evaluation algorithm 𝐸𝑣𝑎𝑙.
 - If we have a function 𝑓 and ciphertext 𝑐<sub>1</sub>, 𝑐<sub>2</sub>, … , 𝑐<sub>n</sub> that encrypt message 𝑚<sub>1</sub>, 𝑚<sub>2</sub>, … , 𝑚<sub>n</sub> the scheme is homomorphic if
   
-𝐷𝑒𝑐(𝐸𝑣𝑎𝑙(𝑓, 𝑐<sub>1</sub>, 𝑐<sub>2</sub>, … , 𝑐<sub>n</sub>)) = 𝑓(𝑚<sub>1</sub>, 𝑚<sub>2</sub>, … , 𝑚<sub>n</sub>)
+  𝐷𝑒𝑐(𝐸𝑣𝑎𝑙(𝑓, 𝑐<sub>1</sub>, 𝑐<sub>2</sub>, … , 𝑐<sub>n</sub>)) = 𝑓(𝑚<sub>1</sub>, 𝑚<sub>2</sub>, … , 𝑚<sub>n</sub>)
   
 o 𝐸𝑛𝑐(𝑚<sub>1</sub>) ⊕ 𝐸𝑛𝑐(𝑚<sub>2</sub>) → 𝐸𝑛𝑐(𝑚<sub>1</sub> + 𝑚<sub>2</sub>)
 
@@ -287,6 +287,7 @@ o No need to decrypt during computation
 ### **Partially Homomorphic Encryption(PHE)**
 
 Partial homomorphic encryption permits for a particular sort of operation to be carried out on the encrypted information while keeping the encryption.
+
  **Example:**
 - **Additive Homomorphism:** This allows for addition encrypted values. Given encrypted values '𝐸𝑛𝑐(𝑎)' and '𝐸𝑛𝑐(𝑏)', you could compute '𝐸𝑛𝑐(𝑎 + 𝑏)' without decryption.
 - **Multiplicative Homomorphism:** This enables multiplication of encrypted values. Given encrypted values '𝐸𝑛𝑐(𝑎)' and '𝐸𝑛𝑐(𝑏)', you could compute '𝐸𝑛𝑐(𝑎 ∗ 𝑏)' with out decryption.
@@ -294,12 +295,14 @@ Partial homomorphic encryption permits for a particular sort of operation to be 
 ### **Somewhat Homomorphic Encryption (SHE)**
 
 Somewhat homomorphic encryption permits for a limited wide variety of operations to be carried out on encrypted statistics.
+ 
  **Example:**
 - SHE schemes include the Paillier cryptosystem, which helps additive homomorphism
 
 ### **Fully Homomorphic Encryption (FHE)**
 
 Fully homomorphic encryption is the maximum powerful type, allowing for both addition and multiplication operations on encrypted information.
+ 
  **Example:**
   - Gentry-BGV scheme and the Dijk-Gentry-Halevi-Vaikuntanathan (DGHV) scheme.
 
@@ -315,13 +318,13 @@ Fully homomorphic encryption is the maximum powerful type, allowing for both add
 - Complex parameter tuning
 
 ### **Examples**
-+ **ElGamal Encryption:** EE = (KayGen, Enc, Dec)
+ **ElGamal Encryption:** EE = (KayGen, Enc, Dec)
 - Let 𝔾 = ⟨𝑔⟩ be a cyclic group of order 𝑞.
 - 𝐾𝑒𝑦𝐺𝑒𝑛(1<sup>λ</sup>) → (𝑝𝑘, 𝑠𝑘): 𝑠𝑘 ← $ ℤ<sub>q</sub> , 𝑝𝑘 = 𝑔<sup>sk</sup>
 - For 𝑚 ∈ 𝔾, 𝐸𝑛𝑐(𝑚, 𝑝𝑘) → 𝐶: 𝑟 ← $ ℤ<sub>q</sub>, 𝑐<sub>1</sub> = 𝑔<sup>r</sup>, 𝑐<sub>2</sub> =𝑚. 𝑝𝑘<sup>r</sup>, 𝐶 = (𝑐<sub>1</sub>, 𝑐<sub>2</sub>)
 - 𝐷𝑒𝑐(𝐶, 𝑠𝑘) → 𝑚: 𝑚 = c<sub>2</sub>/c<sub>1</sub><sup>sk</sk>
 
-+ **Homomorphic Property:**
+ **Homomorphic Property:**
 - ElGamal is multiplicatively homomorphic
 - 𝐸𝑛𝑐(𝑚<sub>1</sub>, 𝑝𝑘) = (𝑔<sup>r<sub>1</sub></sup>, 𝑚<sub>1</sub> · 𝑝𝑘<sup>r<sub>1</sub></sup>)
 - 𝐸𝑛𝑐(𝑚<sub>2</sub>, 𝑝𝑘) = (𝑔<sup>r<sub>2</sub></sup>, 𝑚<sub>2</sub> · 𝑝𝑘<sup>r<sub>2</sub></sup>)
