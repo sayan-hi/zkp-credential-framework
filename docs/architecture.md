@@ -84,6 +84,20 @@ While RSA accumulators provide strong efficiency, alternative constructions such
 
 ---
 
+
+## Commitment Scheme
+
+A commitment scheme allows a sender to commit to a value while keeping it hidden, with the ability to reveal it later.
+
+---
+
+### Basic Idea
+
+Two entities: A sender S and a receiver R
+- A commitment phase → protocol Com
+- An opening phase → protocol Open
+S has a private message m which it want to commit to R
+
 ## Credential Lifecycle
 
 1. **Credential Issuance**  
