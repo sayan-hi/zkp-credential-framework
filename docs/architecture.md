@@ -364,7 +364,6 @@ Zero-knowledge proof (ZKP) is a cryptographic method used to prove knowledge abo
 The protocol follows a 3-step interaction:
 
 1. **Commitment (t)**
-   
    Prover computes a commitment using randomness and secret witness.
 
 3. **Challenge (c)**  
