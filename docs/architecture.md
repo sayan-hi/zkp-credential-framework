@@ -237,7 +237,7 @@ If valid then Accept (1),  else Reject (0)
 The element 𝐶 has a 𝑞 distinct represenations, relative to 𝑔 and ℎ, with each representation being equally probable.
 - For every candidate message 𝛼<sub>b</sub>, there exist a unique randomness 𝛽<sub>b</sub> ∈ ℤ<sub>q</sub>, such that 𝐶 = 𝐶𝑜𝑚𝑚𝑖𝑡(𝛼<sub>b</sub>, 𝛽<sub>b</sub>)
 - Actually randomness 𝛽 is selectd uniformly from ℤ<sub>q</sub>
-- 𝑃𝑟[𝛼<sub>0</sub> 𝑖𝑠 𝑐𝑜𝑚𝑚𝑖𝑡𝑡𝑒𝑑 𝑖𝑛 𝐶] = 1/q =𝑃𝑟[𝛼<sub>1</sub> 𝑖𝑠 𝑐𝑜𝑚𝑚𝑖𝑡𝑡𝑒𝑑 𝑖𝑛 𝐶 ∀𝛼<sub>0</sub>, 𝛼<sub>1</sub> ∈ ℤ<sub>q</sub>
+- 𝑃𝑟[𝛼<sub>0</sub> 𝑖𝑠 𝑐𝑜𝑚𝑚𝑖𝑡𝑡𝑒𝑑 𝑖𝑛 𝐶] = 1/q =𝑃𝑟[𝛼<sub>1</sub> 𝑖𝑠 𝑐𝑜𝑚𝑚𝑖𝑡𝑡𝑒𝑑 𝑖𝑛 𝐶] ∀𝛼<sub>0</sub>, 𝛼<sub>1</sub> ∈ ℤ<sub>q</sub>
 
 + The Pederson Commitment scheme is **linearly-homomorphic**
   - Let 𝐶<sub>𝛼<sub>1</sub>,𝛽<sub>1</sub></sub> = 𝐶𝑜𝑚𝑚𝑖𝑡(𝛼<sub>1</sub>, 𝛽<sub>1</sub>) = 𝑔<sup>𝛼<sub>1</sub></sup> ℎ<sup>𝛽<sub>1</sub></sup>
