@@ -167,7 +167,29 @@ For any 𝑢 ∈ 𝔾 a pair (𝛼, 𝛽) ∈ ℤ<sub>q</sub><sup>2</sup> is cal
 
 ## Pedersen Commitment Scheme
 
+**Gole:** Provably Secure commitment scheme for the message space 𝓜= ℤ<sub>q</sub> and randomness space 𝓡= ℤ<sub>q</sub>
+
+𝑃𝑒𝑑𝐶𝑜𝑚 = (𝑆𝑒𝑡𝑢𝑝, 𝐶𝑜𝑚𝑚𝑖𝑡, 𝑂𝑝𝑒𝑛)
+
+𝑆𝑒𝑡𝑢𝑝(1<sup>λ</sup>) → 𝑝𝑝: This is Public setup algorithm that generats a cyclic group 𝔾 = ⟨𝑔⟩ of order 𝑞 and a uniformly random element ℎ ∈<sub>r</sub> 𝔾
+
 ### Commitment Function
+
+C = g<sup>𝛼</sup> h<sup>𝛽</sup>
+
+- 𝛼 → message
+- 𝛽 → randomness
+- Provides **perfect hiding** and **computational binding**
+
+𝑪𝒐𝒎𝒎𝒊𝒕(𝒑𝒑, 𝜶, 𝜷) → 𝑪
+
+<p align="center">
+   <img src="./images/pedersen_commit.png" width="600"/>
+</p>
+
+<p align="center"><b><em>Figure 5: Pedersen commitment generation using group generators g and h</em></b></p>
+
+---
 
 ### Opening Function
 
