@@ -94,7 +94,9 @@ Scenario: Two 'honest-but-curious' verifiers follow the protocol but share data 
 conglomerate.
 
 BANK KNOWS: (Income: ₹12 LPA, Monthly spending pattern, EMI obligations, Loan applications history, Credit card usage) + INSURANCE KNOWS:(Age: 24, Non-smoker status, Health conditions, Family medical history, Previous claims)
+
    ↓
+   
 **COMBINED PROFILE (without user's knowledge or consent):**
 
 Full financial status  +  complete health history  →  automated risk scoring → higher premiums, denied loans, targeted manipulation
