@@ -16,6 +16,38 @@ The design ensures that no verifier learns anything beyond the validity of the a
 
 ---
 
+## The Centralized Identity Model
+
+
+
+<p align="center">
+   <img src="./images/the_centralized_identity_model.png" width="600"/>
+</p>
+
+Privacy Impact: Every verification exposes MORE data than necessary - creating a trail across systems.
+
+"The system reveals everything when it only needs to reveal a single fact."
+
+---
+
+## The Multi-Verifier Nightmare
+
+Suppose user's interact with 8 services in a month - every interaction leaves a data trail
+
+<p align="center">
+   <img src="./images/multi_verifier_nightmere.png" width="600"/>
+</p>
+
++ PRIVACY RISKS
+- Build detailed profile
+- Correlate with other data
+- Share or sell data
+- Link activities cross-system
+- Infer hidden attributes
+
+---
+
+
 ## System Model
 
 The framework operates in a distributed setting involving four entities:
