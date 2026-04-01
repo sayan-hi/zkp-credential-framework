@@ -414,7 +414,7 @@ b = Verify(vk, π, x) → {0,1} async, offline OK
 
 ---
 
-# Sigma Protocol
+# Sigma Protocol (Σ-Protocol)
 
 Sigma protocols are a class of **3-move public-coin Zero-Knowledge Proofs** characterized by their simple and efficient structure:
 
@@ -429,7 +429,7 @@ Commit → Challenge → Response
 <p align="center">
   <img src="./images/sigma_protocol.png" width="600"/>
 </p>
-<p align="center"><b><em>Figure 7: Sigma protocol structure for Zero-Knowledge Proof of knowledge</em></b></p>
+<p align="center"><b><em>Figure 7: Σ-Protocol structure for Zero-Knowledge Proof of knowledge</em></b></p>
 
 ---
 
@@ -461,7 +461,13 @@ Let:
 
   g<sup>s</sup> ?= t · y<sup>c</sup>
   
+<p align="center">
+   <img src="./images/proof_of_knowledge.png" width="600"/>
+</p>
 
+- Proof-size: 𝑂(𝑛)
+- Verification complexity: 𝑂(𝑛)
+  
 ---
 
 ## Security Guarantees
@@ -491,8 +497,24 @@ Sigma protocols support powerful constructions:
   </p>
 
   <p align="center"><b><em>Figure 8: Σ-Protocol for discrete log (AND)</em></b></p>
-- **OR proofs** → prove knowledge of one among many  
-- **Vector proofs** → multi-attribute verification  
+- **OR proofs** → prove knowledge of one among many
+  <p align="center">
+   <img src="./images/or.png" width="600"/>
+</p>
+<p align="center">
+   <img src="./images/sigma_protocol_or.png" width="600"/>
+</p>
+<p align="center"><b><em>Figure 9: Σ-Protocol for discrete log (OR)</em></b></p>
+
+- **Vector proofs** → multi-attribute verification
+
+  Proof of Knowledge (PoK) of 𝒙,𝛾∈𝔽 such that 𝑃=𝒈𝒙ℎ𝛾 (Note : 𝑃,𝑔,ℎ∈𝔾 are public) satisfies
+
+  <p align="center">
+   <img src="./images/vector.png" width="600"/>
+</p>
+<p align="center"><b><em>Figure 10: Σ-Protocol for discrete log (vector)</em></b></p>
+
 - **Proof compression** → reduced communication cost
 
 ---
@@ -557,10 +579,14 @@ This framework addresses these challenges through:
 
 ##  Real-World Failures
 
+Every major breach below used a 'trusted' centralized identity or data system:
+
 - Aadhaar data exposure incidents  
 - Cambridge Analytica data misuse  
 - Equifax large-scale data breach  
-
+<p align="center">
+   <img src="./images/real_world_failure.png" width="600"/>
+</p>
 In all cases, users **lost control after sharing data**
 
 ---
