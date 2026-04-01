@@ -508,7 +508,7 @@ Sigma protocols support powerful constructions:
 
 - **Vector proofs** → multi-attribute verification
 
-  Proof of Knowledge (PoK) of 𝒙,𝛾∈𝔽 such that 𝑃=𝒈𝒙ℎ𝛾 (Note : 𝑃,𝑔,ℎ∈𝔾 are public) satisfies
+  Proof of Knowledge (PoK) of 𝒙,𝛾∈𝔽 such that 𝑃=𝒈<sup>𝒙</sup>ℎ<sup>𝛾</sup> (Note : 𝑃,𝑔,ℎ∈𝔾 are public) satisfies
 
   <p align="center">
    <img src="./images/vector.png" width="600"/>
@@ -587,6 +587,7 @@ Every major breach below used a 'trusted' centralized identity or data system:
 <p align="center">
    <img src="./images/real_world_failure.png" width="600"/>
 </p>
+
 In all cases, users **lost control after sharing data**
 
 ---
