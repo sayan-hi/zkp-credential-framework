@@ -38,12 +38,12 @@ Suppose user's interact with 8 services in a month - every interaction leaves a 
    <img src="./images/multi_verifier_nightmere.png" width="600"/>
 </p>
 
-+ PRIVACY RISKS
-- Build detailed profile
-- Correlate with other data
-- Share or sell data
-- Link activities cross-system
-- Infer hidden attributes
+**PRIVACY RISKS**
+ - Build detailed profile
+ - Correlate with other data
+ - Share or sell data
+ - Link activities cross-system
+ - Infer hidden attributes
 
 ---
 
