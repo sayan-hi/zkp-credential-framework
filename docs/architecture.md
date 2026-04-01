@@ -28,6 +28,21 @@ Privacy Impact: Every verification exposes MORE data than necessary - creating a
 
 "The system reveals everything when it only needs to reveal a single fact."
 
+## Why Conventional Techniques Fail?
+
+### Approach 1: Direct Document Sharing
+
+User (Has identity documents) → Scans (Creates digital copies) → Sends (Uploads to verifier) → Verifier (Receives & stores all data)
+
+**PROBLEMS WITH THIS APPROACH**
+
+  - Full data exposure -every field, every document is shared
+  - Documents can be stored indefinitely without consent
+  - Forgery risk -verifier cannot cryptographically verify authenticity
+  - No attribute selection - cannot share just one fact
+  - Easy to correlate across verifiers via identical documents
+  - User has zero control after the document leaves their hands
+    
 ---
 
 ## The Multi-Verifier Nightmare
