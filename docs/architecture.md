@@ -2,11 +2,17 @@
 
 ## Overview
 
-This work presents a **privacy-preserving, multi-domain credential verification framework** based on zero-knowledge proofs (ZKPs), enabling users to prove predicates over committed attributes without revealing the underlying data. The system achieves **strong privacy, security, and scalability guarantees**, including scoped unlinkability, replay resistance, and efficient revocation.
+This work presents a **privacy-preserving, multi-domain credential verification framework** based on zero-knowledge proofs (ZKPs), enabling users to prove statements over committed attributes without revealing the underlying values.
 
-The architecture follows a **modular, cryptographically rigorous design**, grounded in standard hardness assumptions such as the Discrete Logarithm and Strong RSA assumptions. It deliberately avoids trusted setup dependencies and opaque proof systems, ensuring transparency and auditability.
+Concretely, user attributes are encoded as commitments of the form C = g<sup>α</sup> h<sup>β</sup> in a cyclic group G of prime order q, where α represents the secret attribute and β is randomness. Using these commitments, the system supports efficient zero-knowledge proofs of knowledge (PoK) for verifying predicates on hidden data.
 
-Beyond theoretical soundness, the system explicitly addresses **real-world deployment challenges**, including scalable issuer trust management, revocation efficiency, multi-verifier privacy risks, and long-term cryptographic resilience, making it suitable for both research and practical identity infrastructures.
+The framework achieves **strong privacy, security, and scalability guarantees**, including unlinkability across domains, replay resistance, and efficient revocation mechanisms.
+
+The architecture follows a **modular, cryptographically rigorous design**, grounded in standard hardness assumptions such as the Discrete Logarithm assumption in G and Strong RSA assumptions. It deliberately avoids trusted setup dependencies, opaque proof systems and relies on transparent Σ-Protocol constructions to ensure transparency and auditability.
+
+Beyond theoretical soundness, the system explicitly addresses **Practical deployment challenges**, including scalable issuer trust management, privacy-preserving multi-verifier interactions, and long-term cryptographic resilience, making it suitable for real-world identity and credential systems.
+
+The design ensures that no verifier learns anything beyond the validity of the asserted statement.
 
 ---
 
