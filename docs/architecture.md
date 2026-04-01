@@ -16,7 +16,7 @@ The design ensures that no verifier learns anything beyond the validity of the a
 
 ---
 
-## The Centralized Identity Model
+## The Centralized Identity Model (Conventional Systems)
 
 
 
@@ -28,11 +28,13 @@ Privacy Impact: Every verification exposes MORE data than necessary - creating a
 
 "The system reveals everything when it only needs to reveal a single fact."
 
+---
+
 ## Why Conventional Techniques Fail?
 
 ### Approach 1: Direct Document Sharing
 
-User (Has identity documents) → Scans (Creates digital copies) → Sends (Uploads to verifier) → Verifier (Receives & stores all data)
+[User (Has identity documents) → Scans (Creates digital copies) → Sends (Uploads to verifier) → Verifier (Receives & stores all data)]
 
 **PROBLEMS WITH THIS APPROACH**
 
@@ -43,6 +45,93 @@ User (Has identity documents) → Scans (Creates digital copies) → Sends (Uplo
   - Easy to correlate across verifiers via identical documents
   - User has zero control after the document leaves their hands
     
+---
+
+### Approach 2: Centralized Identity (OAuth / SSO)
+
+**PROBLEMS**
+
+  - Single point of failure - one breach exposes ALL
+  - IdP sees ALL your activity across every service
+  - Provider can link all your sessions over time
+  - Trust concentration in one corporate entity
+  - IdP can be coerced by governments/courts
+  - Vendor lock-in & service discontinuation risk
+
+---
+
+### Attack Scenario: The Correlation Attack
+
+Suppose user presents the same credential to Bank (Day 1) and Insurance (Day 5)
+
+1. Priya → presents credential to Bank (Bank records: session ID #A1, timestamp, credential fingerprint α)
+2. Priya → presents same credential to Insurance (Insurance records: session ID #B5, timestamp, credential fingerprint α)
+3. Bank & Insurance share session data ("Data partnership agreement" - both institutions, same parent group)
+4. Correlation found: fingerprint α appears in both! (Same credential hash used → definitively same use)
+5. Profiles merged across institutions (Bank now knows: Priya applied for insurance. Insurance knows: she has a loan.)
+6. PRIVACY COMPROMISED (Risk scoring without consent → higher premiums, denied loan, targeted ads)
+
+Root Cause: The credential fingerprint is IDENTICAL across presentations - making the user trivially linkable.
+
+---
+
+### Attack: The Replay Attack
+
+**DEFINITION:**  An attacker captures a valid credential presentation and re-uses it later to impersonate the victim.
+
+1. **User:** Generates credential presentation σ and sends it to Verifier A (e.g., Bank)
+2. **Verifier A (Malicious):** Accepts the proof... but also secretly SAVES a copy of σ for later use
+3. **Attacker / Mal. Verifier:** Days later, replays σ to Verifier B (Insurance) - claiming to be User
+4. **Verifier B (Honest):** Cannot distinguish replay from genuine proof - ACCEPTS. Priya impersonated!
+
+**WHY IT WORKS:** No binding to verifier or time!
+
+---
+
+### Attack: Verifier Collusion
+
+Scenario: Two 'honest-but-curious' verifiers follow the protocol but share data afterwards. Both belong to the same parent 
+conglomerate.
+
+BANK KNOWS: (Income: ₹12 LPA, Monthly spending pattern, EMI obligations, Loan applications history, Credit card usage) + INSURANCE KNOWS:(Age: 24, Non-smoker status, Health conditions, Family medical history, Previous claims)
+   ↓
+**COMBINED PROFILE (without user's knowledge or consent):**
+
+Full financial status  +  complete health history  →  automated risk scoring → higher premiums, denied loans, targeted manipulation
+
+---
+
+### Attack: Linkability Attack
+
+**DEFINITION:** Correlating user identity across multiple independent verification sessions
+
+**MECHANISM:** Verifiers compare credential signatures/hashes
+
+---
+
+### Attack:  Metadata Leakage
+
+**DEFINITION:** Inferring identity through timing, IP address, device fingerprint
+
+**MECHANISM:** Side channels independent of credential content
+
+---
+
+### Attack:  Issuer Tracking
+
+**DEFINITION:** The issuer monitors every time a credential it issued is presented
+
+**MECHANISM:** Issuer-verifier back-channel / credential serial numbers
+
+---
+
+## KEY FAILURES Conventional Systems
+
+- Cannot prevent over-disclosure (Verifier always gets more than needed)
+- Cannot prevent linkability (Credential fingerprint enables correlation)
+- Cannot survive collusion (Combined data creates full profile)
+- Trust model is broken (Central parties become surveillance nodes)
+
 ---
 
 ## The Multi-Verifier Nightmare
