@@ -686,7 +686,7 @@ Prove:
 
 ## Fiat–Shamir Transformation (NIZK)
 
-**INTERACTIVE ZKP:** Multiple rounds of challenge / response
+**INTERACTIVE ZKP:** Requires multiple rounds of communication between the prover and verifier where the verifier sends challenges to the prover and receives his responses
 
   - Requires both parties (Prover and Verifier) ONLINE simultaneously
     
@@ -694,7 +694,7 @@ Prove:
     
   - Simpler to analyze formally
 
-**NON-INTERACTIVE ZKP (NIZK):** Single message. No back-and-forth
+**NON-INTERACTIVE ZKP (NIZK):** a single message from prover to verifier; the verifier can check proof independently (used for trustless verification ondecentralized system)
 
  - No simultaneous online requirement
    
@@ -1027,13 +1027,101 @@ These require **policy, governance, and network-layer solutions**
 
 While the current system relies on classical assumptions, it is designed for **future post-quantum migration**.
 
-Potential extensions include:
+### What is Post Quantum Cryptography ?
 
-- Lattice-based commitments  
-- Post-quantum zero-knowledge protocols  
-- Quantum-resistant accumulators  
+**HARVEST NOW, DECRYPT LATER**
+
+- Digital security is built on the 5 pillars– Confidentiality, Integrity, Availability, Authentication, Non-repudiation
+- Encryption and Digital signature protocols ensure a secure network based on these pillars
+- Security in the digital world is based on the mathematical hardness of the classical cryptographic algorithms– RSA and ECC
+
+**Threat for RSA**
+
+   - RSA is an asymmetric encryption algorithm
+   - The public key is a 2048-bit integer and the private key is its prime factor
+   - The computational complexity for prime factorization of any 𝑛-bit integer is, e<sup>𝑐+𝑜(1)(ln 𝑛)<sup>1/3</sup> (ln ln 𝑛)<sup>2/3</sup></sup>
+   -  In 1994, Peter Shor presented an algorithm which can determine prime factors of an integer in real time on a powerful machine
+
+**Threat for ECC**
+
+   -  Elliptic curve cryptography is based on elliptic curve theory and Diffie-Hellman key exchange
+   - The public key sizes are much smaller than RSA
+   - The computational complexity lies in solving the discrete logarithm problem (DLP) in a large finite cyclic group, 𝐺 : given 𝑔,𝑝(𝑙𝑎𝑟𝑔𝑒𝑝𝑟𝑖𝑚𝑒) ,𝑔<sup>𝑎</sup>𝑚𝑜𝑑 𝑝, it isdifficult to find 𝑎.
+   - Shor’s algorithm can make Ω(log|𝐺|) group operation queries in polynomial time
+
+### Classical Cryptography vs Quantum Cryptography
+
+ - Classical cryptography uses mathematically hard problems to derive security protocols to protect information
+ - The mathematical hardness is defined with respect to the computational power of classical computers, which are based on 0/1 bit
+ - The encryption or signature is generated using public/private key pairs which cannot be cracked in real time due to the low computing power of a classical computer
+ - Aquantum computer is built on qubits which are dependent on quantum states
+ - This increases the computational power by many folds, hence algorithms like Shor’s can be implemented in real time
+ - This creates a risk to the existing classical cryptography
+
+### Quantum Cryptography Timeline
+
+- 2001 - researchers at IBM implemented Shor’s algorithm on a 7-qubit NMR computer
+- 2011 – D-Wave systems claimed to produce first commercial quantum computer
+- 2016 – IBM launched first cloud based quantum computing platform IBM-Q
+- 2016–NIST initiated a standardization process to find quantum-safe algorithms for key exchange and signature
+- 2020 to 2023 - Major advancements in building quantum machines with higher qubit count and error correction by IBM, Google, Microsoft
+- 2025 – NIST standardized 3 protocols for key exchange and signature
+- Q-Day–Experts say, a noise free quantum computer which can break a 2048 bit encryption, may be available as early as 2030
+
+### Mosca’sTheorem
+
+If X represents the number of years that data must be kept secure, and Y is the estimated time needed to complete the transition,then organizations must start transitioning to post quantum algorithms before X+Y exceeds the expected time Z for a cryptographically relevant quantum computer to be built.
+
+**Alternative areas for post quantum cryptographic algorithms**
+
+- **Lattice-based:**  Hard geometric challenge to find the shortest vector in a high dimensional lattice
+- **Hash based:** Rely purely on the security of cryptographic hash functions
+- **Codebased:** Difficulty of decoding random linear error-correcting codes
+- **Multivariate based:** Solving complex systems of nonlinear equations
+- **Isogeny based:** Elliptic curve theory
 
 ---
+
+## Threat for Hash functions
+
+- Hash functions, ℋ:𝑋 → {0,1}<sup>𝑛</sup> map a message into a fixed length output so that, given the, ℋ(𝑥) it is hard to determine the pre-image in real time
+- Searching the pre-image by brute force is of 𝑂(𝑛)
+- In 1996, Lov Grover came up with an algorithm which reduces the search to 𝑂(𝑛)
+- Advent of quantum computers would give rise to brute-force attacks and collision attacks due to this quadratic speed-up
+
+| ZKP Protocols/Frameworks | Mathematical Primitive | Main feature of ZKP | Is it Quantum Secure? |
+|--------------------------|------------------------|---------------------|-----------------------|
+| 𝚺-protocol (like Schnorr) | Discrete log in cyclic group, G | Knowledge soundness | Broken by Shor |
+| Fiat-Shamir NIZK | Cryptographic Hash function (ROM/QROM) | Non-interactivity | Grover reduces security |
+| Pederson Commitment based ZK | Group exponentiation (DLP) | Perfect hiding, computational binding | Broken by Shor |
+| Groth16 zk-SNARK | Bilinear pairing | Constant-size proof | Broken by Shor |
+| PLONK | Polynomial commitments and pairing | Setup | Broken by Shor |
+| Bulletproofs | Elliptic curve inner product | Logarithmic proof size | Broken by Shor |
+| zk-STARK | Hash functions and polynomials | Transparent setup | Yes, if Hash is secure |
+| MPC-in-the-Head ZK | Symmetric cryptography + secret sharing | Transparent zero knowledge | Yes, if Hash is secure |
+| Lattice based ZK | LWE, SIS over  ℤ𝑞<sup>𝑛</sup> | Post quantum soundness | Yes | 
+| Merkle Tree based ZK | Collision resistant hash trees | Efficient commitments | Yes, if Hash is secure |
+
+## Quantum migration of ZKP
+
+**Possible replacements**
+
+| Classical Component | PQ alternative |
+| Groth16 | Lattice based |
+| PLONK | Hash based MPC-in the-Head |
+| Pederson Commitment | SIS-based commitment |
+| EC-DSA | ML-DSA |
+| BLS Signatures | SLH-DSA |
+
+## Challenges in Migration
+
+- Hugecomputational overhead as key sizes are much larger compared to RSA/ECC algorithms
+- Causes performance degradation
+- Migration would be complex process
+- Hardware acceleration requirements
+- Increase in proof sizes and proving time
+- Higher cost for verification
+
 
 ## Design Principles
 
