@@ -686,6 +686,24 @@ Prove:
 
 ## Fiat–Shamir Transformation (NIZK)
 
+**INTERACTIVE ZKP:** Multiple rounds of challenge / response
+
+  - Requires both parties (Prover and Verifier) ONLINE simultaneously
+    
+  - Does not scale to async internet use
+    
+  - Simpler to analyze formally
+
+**NON-INTERACTIVE ZKP (NIZK):** Single message. No back-and-forth
+
+ - No simultaneous online requirement
+   
+ - Scales to web and mobile
+   
+ - Basis: zk-SNARKs, zk-STARKs, Bulletproofs
+
+**Fiat–Shamir Heuristic:**  replace challenge with H(commitment)
+
 Interactive ZKP can be transformed into a **Non-Interactive Zero-Knowledge Proof (NIZK)** using a cryptographic hash function:
 
 \[
@@ -711,6 +729,34 @@ Public CRS/SRS generated once (trusted setup or transparent)
 b = Verify(vk, π, x) → {0,1} async, offline OK
 
 ---
+
+## ZKP vs. Traditional: Head-to-Head
+
+   | REQUIREMENT | TRADITIONAL | ZKP SYSTEM |
+   |-------------|-------------|------------|
+   | Data shared with verifier | Full credential / document | Proof π only |            
+   | Linkability across sessions |  Same ID → trivially linkable | Fresh random proof each time |             
+   | Collusion survivability | Profiles merge easily | No data to merge -only bits |
+   | Attribute selectivity | All-or-nothing disclosure | Prove any predicate you choose |
+   | Verifier trust requirement | Must trust verifier's storage | No trust needed -math verifie 
+   | Replay protection | Credential can be replayed | Nonce binding prevents replay |
+   | Issuer involvement per use | Often required each time | One-time issuance, infinite proofs |
+   
+---
+
+## ZKP Properties
+
+- Proves knowledge without revealing underlying data - Zero-Knowledge property - (Goldwasser–Micali-Rackoff 1985)
+- Honest prover always convinces verifier - Completeness - Pr[V accepts] = 1
+- Cheating prover cannot produce valid proof - Soundness - Pr[V accepts false] ≤ ε
+- Each proof unlinkable across different verifiers - Simulation-based unlinkability - Fresh randomness
+- Non-interactive -single proof artifact - NIZK via Fiat-Shamir - Random oracle model
+- Selective disclosure of individual attributes - Predicate proofs per attribute - Circuit per predicate
+- Withstands honest-but-curious adversaries - Computational ZK - View simulatability
+- Prevents verifier acting on the verified result - (policy layer - out of scope) - Legal / contractual
+
+---
+
 
 # Sigma Protocol (Σ-Protocol)
 
@@ -826,6 +872,18 @@ Sigma protocols support powerful constructions:
 
 ---
 
+# Major ZKP Protocols at a Glance
+
+| PROTOCOL | TYPE | TRUSTED SETUP | PROOF SIZE | VERIFY SPEED | PQ-SECURE | BEST FOR |
+|----------|------|---------------|------------|--------------|-----------|----------|
+| Groth16 (2016) | zk-SNARK | YES | ~192 bytes | ~1 ms | NO | Ethereum L2, Zcash (Sapling) |
+| PLONK (2019) | zk-SNARK | Universal | ~500 bytes | ~5 ms | NO | General circuits; Aztec, zkSync |
+| zk-STARKs  (2018) | zk-STARK | NONE | 10–200 KB | ~50 ms | YES | StarkNet, StarkEx, post-quantum |
+| BBS+ (2023) | Signature | CRS only | ~112 bytes | <1 ms | NO | W3C VC, multi-attribute selective disclosure |
+| Bulletproofs (2017) | NIZK Range | NONE | ~1 KB | ~100 ms | NO | Monero (range proofs), confidential txns |
+
+---
+
 ## Credential Lifecycle
 
 1. **Credential Issuance**  
@@ -899,7 +957,7 @@ In all cases, users **lost control after sharing data**
 
 ---
 
-## Threat Model
+## ZKP Security Model & Trust Assumptions
 
 The system considers the following adversaries:
 
@@ -909,6 +967,13 @@ The system considers the following adversaries:
 - **Replay attackers reusing proofs**  
 - **Correlation attacks using metadata**
 
+**TRUST ASSUMPTIONS**
+
+   - Trusted Setup: CRS generated honestly (MPC ceremonies mitigate this)
+   - Hardness: Security relies on computational hardness assumptions (DL, pairing)
+   - Issuer honesty: Issuer correctly signs real attributes (policy, not ZKP)
+   - Prover's device: Witness must remain secure on Priya's device
+     
 ---
 
 ## Attacks Considered
@@ -946,13 +1011,13 @@ The system is designed against:
 ---
 
 
-## Limitations
+## Limitations (WHAT ZKP DOES NOT SOLVE  (requires system design beyond ZKP))
 
 ZKP does NOT inherently solve:
 
-- Verifier misuse of valid outputs  
-- Incorrect attribute issuance by issuer  
-- Network-level metadata leakage  
+- Does NOT prevent verifier from acting on the result (e.g., denying a loan) - requires policy/law.
+- Does NOT guarantee issuer signed correct attributes - requires trust in issuer.
+- Does NOT prevent metadata leakage (IP address, timing) - requires network-layer anonymity (Tor, mixnets).  
 
 These require **policy, governance, and network-layer solutions**
 
@@ -990,10 +1055,12 @@ Potential extensions include:
 
 Zero-Knowledge technologies are actively deployed in:
 
-- **Zcash** → shielded transactions  
-- **Polygon zkEVM / StarkNet** → scalable blockchain execution  
-- **EU Digital Identity Wallet (EUDI)** → privacy-preserving identity  
-- **Google Wallet** → selective disclosure (age verification)  
+- **Zcash - Shielded Transactions** → shielded transactions. [https://z.cash/] 
+- **Polygon zkEVM / StarkNet** → scalable blockchain execution. [https://polygon.technology/polygon-zkevm]  
+- **EU Digital Identity Wallet (EUDI)** → privacy-preserving identity. [https://en.wikipedia.org/wiki/EU_Digital_Identity_Wallet]
+- **Google Wallet Age Verification** → selective disclosure (age verification). [https://blog.google/innovation-and-ai/technology/safety-security/opening-up-zero-knowledge-proof-technology-to-promote-privacy-in-age-assurance/]
+- **MACI - Minimal Anti-Collusion Infrastructure** → Proves vote was cast and counted correctly without revealing the vote. Used in Gitcoin, ETH governance. [https://maci.pse.dev/]
+- **ING / JP Morgan ZK Credit** → Proves credit score above threshold or AML compliance without sharing full financial records with counterparty. [https://www.coindesk.com/markets/2017/10/17/jpmorgan-integrates-zcash-privacy-tech-into-quorum-blockchain]
 
 ---
 
