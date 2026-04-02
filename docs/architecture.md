@@ -182,25 +182,25 @@ The framework operates in a distributed setting involving four entities:
 
 - **Verifier**: Entities that need to verify specific claims about the holder - but each only NEEDS specific information, yet receives everything. verifier only NEEDS specific information...but they GET everything.
 
-**Here's the disparity:**
+   **Here's the disparity:**
 
-| VERIFIER | WHAT THEY NEED | WHAT THEY GET |
-|----------|----------------|---------------|
-| Bank     | Income > ₹5 LPA  (1 bit: YES/NO) | Full salary slips + bank statements + PAN + transaction history |
-| Insurance Co. | Age ≥ 18 + Non-smoker  (2 bits) | Complete medical records + full health history + family conditions |
-| Job Portal | Has M.Tech degree  (1 bit: YES/NO) | Entire academic transcript + grades + institute + faculty references |
+   | VERIFIER | WHAT THEY NEED | WHAT THEY GET |
+   |----------|----------------|---------------|
+   | Bank     | Income > ₹5 LPA  (1 bit: YES/NO) | Full salary slips + bank statements + PAN + transaction history |
+   | Insurance Co. | Age ≥ 18 + Non-smoker  (2 bits) | Complete medical records + full health history + family conditions |
+   | Job Portal | Has M.Tech degree  (1 bit: YES/NO) | Entire academic transcript + grades + institute + faculty references |
 
-**Data Needed vs. Data Shared Ratio - typically 1:100 or worse. This is the core problem ZKP solves.**
+   **Data Needed vs. Data Shared Ratio - typically 1:100 or worse. This is the core problem ZKP solves.**
 
 
 
        
 - **Revocation Authority**: Maintains revocation state  
 
-Let:
-- \( m \) denote user attributes  
-- \( C = Commit(m, r) \) be a commitment  
-- \( π \) denote a zero-knowledge proof  
+   Let:
+   - \( m \) denote user attributes  
+   - \( C = Commit(m, r) \) be a commitment  
+   - \( π \) denote a zero-knowledge proof  
 
 The system ensures correctness and privacy for all interactions between these entities under adversarial conditions.
 
@@ -219,9 +219,17 @@ The system ensures correctness and privacy for all interactions between these en
 **DEFINITION:**
 A ZKP is a protocol between Prover (P) and Verifier (V) whereby P proves a statement x ∈ L is TRUE without revealing any information beyond the truth of that statement.
 
-- **COMPLETENESS:** If the statement is TRUE, an honest prover can always convince an honest verifier. Pr[V accepts P(x)] = 1
-- **SOUNDNESS:** If the statement is FALSE, no cheating prover can convince the verifier (except negligible probability). Pr[V accepts P*(x)] ≤ ε
-- **ZERO-KNOWLEDGE:** The verifier learns NOTHING beyond the yes/no answer - the transcript can be simulated without the witness. View_V(P,x) ≡ Sim(x)
+- **COMPLETENESS:** If the statement is TRUE, an honest prover can always convince an honest verifier.
+
+  Pr[V accepts P(x)] = 1
+  
+- **SOUNDNESS:** If the statement is FALSE, no cheating prover can convince the verifier (except negligible probability).
+
+  Pr[V accepts P*(x)] ≤ ε
+  
+- **ZERO-KNOWLEDGE:** The verifier learns NOTHING beyond the yes/no answer - the transcript can be simulated without the witness.
+
+  View_V(P,x) ≡ Sim(x)
    
 
 ## Core Components
@@ -231,7 +239,9 @@ A ZKP is a protocol between Prover (P) and Verifier (V) whereby P proves a state
 The issuer is responsible for credential generation and cryptographic binding of user attributes. It does nOT participate in individual proof sessions.
 
 σ = Sign(sk, attrs)
+
 One-time issuance, offline
+
 e.g. Aadhaar Authority, University
 
 - Constructs **Pedersen commitments** \( C = g^m h^r \) ensuring hiding and binding  
@@ -248,7 +258,9 @@ The issuer acts as a root of trust, whose correctness is assumed but whose visib
 Holds the credential. Generates a ZKP to prove a specific predicate without revealing the underlying value.
 
 π = Prove(pk, witness, x)
+
 Chooses WHICH predicate to prove
+
 Controls entire disclosure
 
 - Securely stores credentials and associated secrets  
@@ -266,7 +278,9 @@ The holder retains complete control over disclosure, addressing limitations of t
 The verifier Receives the ZKP verifies its mathematical validity while learning nothing beyond their validity (Gets only a YES/NO - never raw data).
 
 b = Verify(vk, π, x) → {0,1}
+
 Cannot extract attribute value
+
 Cannot link across sessions
 
 - Verifies issuer signatures on commitments  
