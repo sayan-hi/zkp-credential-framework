@@ -64,6 +64,34 @@ Privacy Impact: Every verification exposes MORE data than necessary - creating a
 
 ---
 
+
+
+## KEY FAILURES Conventional Systems
+
+- Cannot prevent over-disclosure (Verifier always gets more than needed)
+- Cannot prevent linkability (Credential fingerprint enables correlation)
+- Cannot survive collusion (Combined data creates full profile)
+- Trust model is broken (Central parties become surveillance nodes)
+
+---
+
+## The Multi-Verifier Nightmare
+
+Suppose user's interact with 8 services in a month - every interaction leaves a data trail
+
+<p align="center">
+   <img src="./images/multi_verifier_nightmere.png" width="600"/>
+</p>
+
+**PRIVACY RISKS**
+ - Build detailed profile
+ - Correlate with other data
+ - Share or sell data
+ - Link activities cross-system
+ - Infer hidden attributes
+
+---
+
 ### Attack Scenario: The Correlation Attack
 
 Suppose user presents the same credential to Bank (Day 1) and Insurance (Day 5)
@@ -130,33 +158,6 @@ Full financial status  +  complete health history  â†’  automated risk scoring â
 **MECHANISM:** Issuer-verifier back-channel / credential serial numbers
 
 ---
-
-## KEY FAILURES Conventional Systems
-
-- Cannot prevent over-disclosure (Verifier always gets more than needed)
-- Cannot prevent linkability (Credential fingerprint enables correlation)
-- Cannot survive collusion (Combined data creates full profile)
-- Trust model is broken (Central parties become surveillance nodes)
-
----
-
-## The Multi-Verifier Nightmare
-
-Suppose user's interact with 8 services in a month - every interaction leaves a data trail
-
-<p align="center">
-   <img src="./images/multi_verifier_nightmere.png" width="600"/>
-</p>
-
-**PRIVACY RISKS**
- - Build detailed profile
- - Correlate with other data
- - Share or sell data
- - Link activities cross-system
- - Infer hidden attributes
-
----
-
 
 ## System Model
 
