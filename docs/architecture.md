@@ -198,10 +198,10 @@ The framework operates in a distributed setting involving four entities:
 - **Revocation Authority**: Maintains revocation state  
 
 
-  Let:
-   - \( m \) denote user attributes  
-   - \( C = Commit(m, r) \) be a commitment  
-   - \( π \) denote a zero-knowledge proof  
+Let:
+- \( m \) denote user attributes  
+- \( C = Commit(m, r) \) be a commitment  
+- \( π \) denote a zero-knowledge proof  
 
 The system ensures correctness and privacy for all interactions between these entities under adversarial conditions.
 
