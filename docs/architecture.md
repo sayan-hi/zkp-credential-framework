@@ -162,9 +162,37 @@ Suppose user's interact with 8 services in a month - every interaction leaves a 
 
 The framework operates in a distributed setting involving four entities:
 
-- **Issuer**: Generates and signs credentials  
-- **Holder (Prover)**: Possesses credentials and generates proofs  
-- **Verifier**: Validates proofs without learning sensitive data  
+- **Issuer**: An authority that attests to and vouches for the truth of a holder's attributes by signing them cryptographically (TRUSTED authority whose attestation carries cryptographic weight).
+
+  **Examples:**
+
+    - Government (Aadhaar, PAN Card, Passport)
+    - University (Degree certificates, transcripts)
+    - Employer (Employment proof, salary slips)
+    - Bank (Income statements, KYC)
+
+- **Holder (Prover)**: The individual who possesses identity attributes and must prove specific claims about them to various verifying parties.
+
+  **KEY CHALLENGES USER FACES:**
+
+     - Must share MORE data than the verifier actually needs
+     - Cannot control what the verifier does with her data
+     - Same sensitive data repeated to EVERY verifier
+     - No technical guarantee against data misuse or re-sharing
+
+- **Verifier**: Entities that need to verify specific claims about the holder - but each only NEEDS specific information, yet receives everything. verifier only NEEDS specific information...but they GET everything.
+
+**Here's the disparity:**
+
+| VERIFIER | WHAT THEY NEED | WHAT THEY GET |
+|----------|----------------|---------------|
+| Bank     | Income > ₹5 LPA  (1 bit: YES/NO) | Full salary slips + bank statements + PAN + transaction history |
+| Insurance Co. | Age ≥ 18 + Non-smoker  (2 bits) | Complete medical records + full health history + family conditions |
+| Job Portal | Has M.Tech degree  (1 bit: YES/NO) | Entire academic transcript + grades + institute + faculty references |
+
+**Data Needed vs. Data Shared Ratio - typically 1:100 or worse. This is the core problem ZKP solves.**
+
+       
 - **Revocation Authority**: Maintains revocation state  
 
 Let:
@@ -175,6 +203,8 @@ Let:
 The system ensures correctness and privacy for all interactions between these entities under adversarial conditions.
 
 ---
+
+
 
 ## Core Components
 
