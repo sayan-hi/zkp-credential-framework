@@ -49,6 +49,10 @@ Privacy Impact: Every verification exposes MORE data than necessary - creating a
 
 ### Approach 2: Centralized Identity (OAuth / SSO)
 
+<p align="center">
+   <img src="./images/centralized_identity.png" width="600"/>
+</p>
+
 **PROBLEMS**
 
   - Single point of failure - one breach exposes ALL
