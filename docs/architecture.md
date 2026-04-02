@@ -192,6 +192,8 @@ The framework operates in a distributed setting involving four entities:
 
 **Data Needed vs. Data Shared Ratio - typically 1:100 or worse. This is the core problem ZKP solves.**
 
+
+
        
 - **Revocation Authority**: Maintains revocation state  
 
@@ -204,13 +206,33 @@ The system ensures correctness and privacy for all interactions between these en
 
 ---
 
+### What Would a Proper Solution Look Like?
 
+- Prove a FACT without revealing the underlying data
+- Present to multiple verifiers without being LINKED
+- Withstand honest-but-curious adversaries
+- Remain private EVEN if verifiers collude
+
+---
+## ZKP: Formal Definition & Three Properties
+
+**DEFINITION:**
+A ZKP is a protocol between Prover (P) and Verifier (V) whereby P proves a statement x ∈ L is TRUE without revealing any information beyond the truth of that statement.
+
+- **COMPLETENESS:** If the statement is TRUE, an honest prover can always convince an honest verifier. Pr[V accepts P(x)] = 1
+- **SOUNDNESS:** If the statement is FALSE, no cheating prover can convince the verifier (except negligible probability). Pr[V accepts P*(x)] ≤ ε
+- **ZERO-KNOWLEDGE:** The verifier learns NOTHING beyond the yes/no answer - the transcript can be simulated without the witness. View_V(P,x) ≡ Sim(x)
+   
 
 ## Core Components
 
 ### 1. Issuer
 
-The issuer is responsible for credential generation and cryptographic binding of user attributes.
+The issuer is responsible for credential generation and cryptographic binding of user attributes. It does nOT participate in individual proof sessions.
+
+σ = Sign(sk, attrs)
+One-time issuance, offline
+e.g. Aadhaar Authority, University
 
 - Constructs **Pedersen commitments** \( C = g^m h^r \) ensuring hiding and binding  
 - Signs commitments using a **Schnorr signature scheme**  
@@ -223,7 +245,11 @@ The issuer acts as a root of trust, whose correctness is assumed but whose visib
 
 ### 2. Holder (Prover)
 
-The holder maintains credentials and generates privacy-preserving proofs.
+Holds the credential. Generates a ZKP to prove a specific predicate without revealing the underlying value.
+
+π = Prove(pk, witness, x)
+Chooses WHICH predicate to prove
+Controls entire disclosure
 
 - Securely stores credentials and associated secrets  
 - Generates **non-interactive zero-knowledge proofs** via the Fiat–Shamir transformation  
@@ -237,7 +263,11 @@ The holder retains complete control over disclosure, addressing limitations of t
 
 ### 3. Verifier
 
-The verifier validates proofs while learning nothing beyond their validity.
+The verifier Receives the ZKP verifies its mathematical validity while learning nothing beyond their validity (Gets only a YES/NO - never raw data).
+
+b = Verify(vk, π, x) → {0,1}
+Cannot extract attribute value
+Cannot link across sessions
 
 - Verifies issuer signatures on commitments  
 - Validates zero-knowledge proofs for correctness and soundness  
@@ -246,6 +276,12 @@ The verifier validates proofs while learning nothing beyond their validity.
 - Accepts or rejects proofs without accessing underlying attributes  
 
 The verifier operates under an **honest-but-curious model**, attempting to learn additional information without deviating from the protocol.
+
+<p align="center">
+   <img src="./images/protocol_flow.png" width="600"/>
+</p>
+
+<p align="center"><b><em>Figure 1: Message flow during authentication session.</em></b></p>
 
 ---
 
@@ -301,7 +337,7 @@ S has a private message m which it want to commit to R
    <img src="./images/commitment_overview.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 1: Basic structure of a commitment scheme showing sender (S) and receiver (R)</em></b></p>
+<p align="center"><b><em>Figure 2: Basic structure of a commitment scheme showing sender (S) and receiver (R)</em></b></p>
 
 ---
 
@@ -314,7 +350,7 @@ S has a private message m which it want to commit to R
    <img src="./images/commit_phase.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 2: Commitment phase where the sender computes and sends commitment c without revealing message m</em></b></p>
+<p align="center"><b><em>Figure 3: Commitment phase where the sender computes and sends commitment c without revealing message m</em></b></p>
 
 - Sends 'c' to receiver
 - Message remains hidden
@@ -323,7 +359,7 @@ S has a private message m which it want to commit to R
    <img src="./images/commitment_receive.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 3: The receiver receives the commitment c from the sender</em></b></p>
+<p align="center"><b><em>Figure 4: The receiver receives the commitment c from the sender</em></b></p>
 
 ---
 
@@ -337,7 +373,7 @@ S has a private message m which it want to commit to R
    <img src="./images/open_phase.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 4: Opening phase where the sender reveals (m,r) and the receiver verifies correctness</em></b></p>
+<p align="center"><b><em>Figure 5: Opening phase where the sender reveals (m,r) and the receiver verifies correctness</em></b></p>
 
 ---
 
@@ -396,7 +432,7 @@ For any 𝑢 ∈ 𝔾 a pair (𝛼, 𝛽) ∈ ℤ<sub>q</sub><sup>2</sup> is cal
    <img src="./images/pedersen_commit.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 5: Pedersen commitment generation using group generators g and h</em></b></p>
+<p align="center"><b><em>Figure 6: Pedersen commitment generation using group generators g and h</em></b></p>
 
 ---
 
@@ -408,7 +444,7 @@ For any 𝑢 ∈ 𝔾 a pair (𝛼, 𝛽) ∈ ℤ<sub>q</sub><sup>2</sup> is cal
    <img src="./images/pedersen_open.png" width="600"/>
 </p>
 
-<p align="center"><b><em>Figure 6: Verification of Pedersen commitment by recomputing commitment using revealed values</em></b></p>
+<p align="center"><b><em>Figure 7: Verification of Pedersen commitment by recomputing commitment using revealed values</em></b></p>
 
 Receiver checks:
 
@@ -607,7 +643,7 @@ Commit → Challenge → Response
 <p align="center">
   <img src="./images/sigma_protocol.png" width="600"/>
 </p>
-<p align="center"><b><em>Figure 7: Σ-Protocol structure for Zero-Knowledge Proof of knowledge</em></b></p>
+<p align="center"><b><em>Figure 8: Σ-Protocol structure for Zero-Knowledge Proof of knowledge</em></b></p>
 
 ---
 
@@ -674,7 +710,7 @@ Sigma protocols support powerful constructions:
   <img src="./images/and.png" width="600"/>
   </p>
 
-  <p align="center"><b><em>Figure 8: Σ-Protocol for discrete log (AND)</em></b></p>
+  <p align="center"><b><em>Figure 9: Σ-Protocol for discrete log (AND)</em></b></p>
 - **OR proofs** → prove knowledge of one among many
   <p align="center">
    <img src="./images/or.png" width="600"/>
@@ -682,7 +718,7 @@ Sigma protocols support powerful constructions:
 <p align="center">
    <img src="./images/sigma_protocol_or.png" width="600"/>
 </p>
-<p align="center"><b><em>Figure 9: Σ-Protocol for discrete log (OR)</em></b></p>
+<p align="center"><b><em>Figure 10: Σ-Protocol for discrete log (OR)</em></b></p>
 
 - **Vector proofs** → multi-attribute verification
 
@@ -691,7 +727,7 @@ Sigma protocols support powerful constructions:
   <p align="center">
    <img src="./images/vector.png" width="600"/>
 </p>
-<p align="center"><b><em>Figure 10: Σ-Protocol for discrete log (vector)</em></b></p>
+<p align="center"><b><em>Figure 11: Σ-Protocol for discrete log (vector)</em></b></p>
 
 - **Proof compression** → reduced communication cost
 
