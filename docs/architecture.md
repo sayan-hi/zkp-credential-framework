@@ -588,32 +588,101 @@ Zero-knowledge proof (ZKP) is a cryptographic method used to prove knowledge abo
 - Zero-Knowledge : A corrupt verifier fails to learn more from the proof.
 - Knowledge Soundness : If P succeeds, ∃ a PPT algorithm Ext that can ‘extract’ the witness.
 
-## Protocol Flow
+## ZKP System Flow - Five Phases
 
 The protocol follows a 3-step interaction:
 
-1. **Commitment (t):** Prover computes a commitment using randomness and secret witness.
+1. **SETUP (Trusted Parameters):**
+   
+    - Generate CRS / SRS
+    - Proving key (pk)
+    - Verif. key (vk)
+    - Done once globally
+      
+2. **ISSUE (Credential Issuance):**
+   
+    - Issuer signs attributes
+    - σ = Sign(sk, attrs)
+    - User stores σ
+    - Offline - happens once
+      
+3. **PROVE (Proof Generation):**
+    
+    - Select predicate p
+    - π = Prove(pk, w, x)
+    - w = secret witness
+    - Runs on User's device
+      
+4. **TRANSMIT (Send Proof Only):**
 
-3. **Challenge (c):** Verifier sends a random challenge (public-coin model).
+    - Send only π to verifier
+    - No raw data
+    - Session-nonce bound
+      
+5. **VERIFY (Proof Verification):**
 
-4. **Response (s):** Prover responds using both randomness and witness.
+    - b = Verify(vk, π, x)
+    - Outputs: {0, 1}
+    - No witness revealed
+    - Session-nonce bound
+    - User stays unlinkable
 
-5. **Verification:** Verifier checks correctness → Accept / Reject.
+User participates in phases 2–4 only. Verifier never sees her witness. Issuer not involved in phases 3–5
 
-<p align="center">
-   <img src="./images/zkp_protocol.png" width="600"/>
-</p>
+## Key Concepts: Witness, Statement & Relation
 
+- **Statement (x)** → The PUBLIC CLAIM the prover wants to prove is true [x ∈ L  (language membership)]
+  
+   **Example:**
+  
+      x = "income > ₹5 LPA"
+  
+      "age ≥ 18", "has M.Tech degree"
+  
+   Public - shared with verifier
+  
+   Boolean: true or false
+  
+   The ONLY thing verifier learn
+  
+- **Witness (w)** → The SECRET data the prover knows but does NOT reveal (w ∈ Witness(L, x))
 
-- **Statement (x)** → public input  
-- **Witness (w)** → secret known only to prover  
-- **Relation (R)** → defines validity condition 
+  **Example:**
+  
+      w = Priya's income ₹12 LPA
+  
+      The Aadhaar number, age, credential σ
+  
+  Private - only prover knows w
+  
+  Used internally in Prove()
+  
+  Never transmitted to verifie
+  
+- **Relation (R)** → The COMPUTATION relating witness to statement, encoded as arithmetic gates (R(w, x) = 1  iff claim holds) [R(w, x) = b]
+
+  **Example:**
+  
+      R(w=12, x=5) → 12>5 → 1
+  
+      Encoded as R1CS / Plonkish constraints
+
+  
+      Defines the allowed check
+  
+      Fixed per predicate type
+  
+      Compiled once, verified many times
 
 Prove:
 
 "I know w such that R(x, w) = 1"
 
+**Verifier knows only x and b - never w**
+
 ---
+
+
 
 ## Fiat–Shamir Transformation (NIZK)
 
@@ -650,6 +719,15 @@ Sigma protocols are a class of **3-move public-coin Zero-Knowledge Proofs** char
 \[
 Commit → Challenge → Response
 \]
+
+
+1. **Commitment (t):** Prover computes a commitment using randomness and secret witness.
+
+3. **Challenge (c):** Verifier sends a random challenge (public-coin model).
+
+4. **Response (s):** Prover responds using both randomness and witness.
+
+5. **Verification:** Verifier checks correctness → Accept / Reject.0
 
 ---
 
