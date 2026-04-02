@@ -1107,6 +1107,7 @@ If X represents the number of years that data must be kept secure, and Y is the 
 **Possible replacements**
 
 | Classical Component | PQ alternative |
+|---------------------|----------------|
 | Groth16 | Lattice based |
 | PLONK | Hash based MPC-in the-Head |
 | Pederson Commitment | SIS-based commitment |
