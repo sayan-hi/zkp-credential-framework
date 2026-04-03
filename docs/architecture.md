@@ -24,9 +24,25 @@ The design ensures that no verifier learns anything beyond the validity of the a
    <img src="./images/the_centralized_identity_model.png" width="600"/>
 </p>
 
-**Privacy Impact:** Every verification exposes MORE data than necessary - creating a trail across systems.
+**Overview**
 
-"The system reveals everything when it only needs to reveal a single fact."
+In the centralized identity model, a trusted authority (e.g., government, institution, or service provider) stores and manages user credentials. During verification, the verifier directly queries, or relies on, this centralized authority to validate user information.
+
+**Privacy Impact:** 
+
+In such systems, verification typically requires the disclosure of complete or excessive user data, even when only a specific attribute is required.
+
+- Users reveal more information than necessary
+- Multiple verifications create a traceable data trail across services
+- Central authorities become single points of surveillance and control
+
+This leads to a fundamental privacy issue:
+
+   **Each verification leaks unnecessary information, enabling cross-service tracking and profiling.**
+
+**Key Limitation**
+
+This model inherently violates the principle of data minimization, as it discloses full identity information even when only a single attribute needs to be verified.
 
 ---
 
@@ -34,16 +50,16 @@ The design ensures that no verifier learns anything beyond the validity of the a
 
 ### Approach 1: Direct Document Sharing
 
-[User (Has identity documents) → Scans (Creates digital copies) → Sends (Uploads to verifier) → Verifier (Receives & stores all data)]
+**User (has identity documents) → scans (creates digital copies) → sends (uploads to verifier) → verifier (receives and stores all data)**
 
-**PROBLEMS WITH THIS APPROACH**
+### Problems with This Approach
 
-  - Full data exposure - every field, every document is shared
-  - Documents can be stored indefinitely without consent
-  - Forgery risk - verifier cannot cryptographically verify authenticity
-  - No attribute selection - cannot share just one fact
-  - Easy to correlate across verifiers via identical documents
-  - User has zero control after the document leaves their hands
+  - **Full data exposure:** Every field and document is unnecessarily disclosed
+  - **Uncontrolled storage:** Documents may be stored indefinitely without user consent
+  - **Forgery risk:** Verifiers cannot cryptographically verify authenticity
+  - **No selective disclosure:** Users cannot reveal only specific attributes
+  - **Cross-verifier correlation:** Identical documents enable tracking across services
+  - **Loss of user control:** Users lose control once the data leaves their possession
     
 ---
 
@@ -53,15 +69,15 @@ The design ensures that no verifier learns anything beyond the validity of the a
    <img src="./images/centralized_identity.png" width="600"/>
 </p>
 
-**PROBLEMS**
+### Problems
 
-  - Single point of failure - one breach exposes ALL
-  - IdP sees ALL your activity across every service
-  - Provider can link all your sessions over time
-  - Trust concentration in one corporate entity
-  - IdP can be coerced by governments/courts
-  - Vendor lock-in & service discontinuation risk
-
+  - **Single point of failure:** A single breach can expose all user data
+  - **Global visibility:** Identity providers can observe user activity across services
+  - **Session linkability:** User sessions can be correlated over time
+  - **Trust concentration:** Control is centralized in a single authority
+  - **Coercion risk:** Providers may be compelled by governments or courts
+  - **Vendor lock-in:** Dependence on a single provider introduces long-term risk
+    
 ---
 
 
