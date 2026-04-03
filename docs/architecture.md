@@ -99,11 +99,11 @@ Suppose user presents the same credential to Bank (Day 1) and Insurance (Day 5)
 1. User → presents credential to Bank (Bank records: session ID #A1, timestamp, credential fingerprint FP)
 2. User → presents same credential to Insurance (Insurance records: session ID #B5, timestamp, credential fingerprint FP)
 3. Bank & Insurance share session data ("Data partnership agreement" - both institutions, same parent group)
-4. Correlation found: fingerprint FP appears in both! (Same credential hash used → definitively same use)
+4. Correlation found! fingerprint FP appears in both (Same credential hash used → definitively same use)
 5. Profiles merged across institutions (Bank now knows: User applied for insurance. Insurance knows: User has a loan.)
 6. PRIVACY COMPROMISED (Risk scoring without consent → higher premiums, denied loan, targeted ads)
 
-Root Cause: The credential fingerprint is IDENTICAL across presentations - making the user trivially linkable.
+**Root Cause:** The credential fingerprint is IDENTICAL across presentations - making the user trivially linkable.
 
 ---
 
