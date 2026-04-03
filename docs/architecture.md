@@ -24,7 +24,7 @@ The design ensures that no verifier learns anything beyond the validity of the a
    <img src="./images/the_centralized_identity_model.png" width="600"/>
 </p>
 
-Privacy Impact: Every verification exposes MORE data than necessary - creating a trail across systems.
+**Privacy Impact:** Every verification exposes MORE data than necessary - creating a trail across systems.
 
 "The system reveals everything when it only needs to reveal a single fact."
 
