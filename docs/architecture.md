@@ -216,16 +216,46 @@ A replay attack is not a failure of cryptography itself, but a failure of contex
 
 ### Attack: Verifier Collusion
 
-Scenario: Two 'honest-but-curious' verifiers follow the protocol but share data afterwards. Both belong to the same parent 
-conglomerate.
+**Scenario:** Two honest-but-curious verifiers follow the protocol correctly during interaction but collude after verification by sharing collected data. Both entities belong to the same parent organization or a data-sharing ecosystem.
 
-BANK KNOWS: (Income: ₹12 LPA, Monthly spending pattern, EMI obligations, Loan applications history, Credit card usage) + INSURANCE KNOWS:(Age: 24, Non-smoker status, Health conditions, Family medical history, Previous claims)
+### Information Held by Each Verifier
 
-   ↓
-   
-**COMBINED PROFILE (without user's knowledge or consent):**
+**Bank (Financial View):**
 
-Full financial status  +  complete health history  →  automated risk scoring → higher premiums, denied loans, targeted manipulation
+- Income (₹12 LPA)
+- Monthly spending patterns
+- EMI obligations
+- Loan application history
+- Credit card usage
+
+**Insurance Provider (Health & Risk View):**
+
+- Age (24)
+- Non-smoker status
+- Health conditions
+- Family medical history
+- Previous insurance claims
+
+**Collusion Outcome:**
+
+Financial Data + Health Data  ⇒  Unified User Profile
+
+### Privacy Impact
+
+Without the user’s knowledge or consent, the combined dataset enables:
+
+- **Complete user profiling:** Financial and health dimensions are merged
+- **Automated risk scoring:** Cross-domain inference improves predictive accuracy
+- **Adverse decision-making:** Higher premiums, loan denial, or service restrictions
+- **Behavioral targeting:** Personalized manipulation and targeted advertising
+
+### Key Observation
+
+**Each verifier individually learns partial information, but collusion transforms fragmented data into a complete and highly sensitive user profile.**
+
+### Root Cause
+
+The system lacks **data isolation and unlinkability guarantees** across verifiers, allowing independently collected attributes to be combined.
 
 ---
 
