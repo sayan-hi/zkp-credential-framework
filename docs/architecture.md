@@ -38,9 +38,9 @@ The design ensures that no verifier learns anything beyond the validity of the a
 
 **PROBLEMS WITH THIS APPROACH**
 
-  - Full data exposure -every field, every document is shared
+  - Full data exposure - every field, every document is shared
   - Documents can be stored indefinitely without consent
-  - Forgery risk -verifier cannot cryptographically verify authenticity
+  - Forgery risk - verifier cannot cryptographically verify authenticity
   - No attribute selection - cannot share just one fact
   - Easy to correlate across verifiers via identical documents
   - User has zero control after the document leaves their hands
