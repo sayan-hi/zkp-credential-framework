@@ -261,25 +261,56 @@ The system lacks **data isolation and unlinkability guarantees** across verifier
 
 ### Attack: Linkability Attack
 
-**DEFINITION:** Correlating user identity across multiple independent verification sessions
+**DEFINITION:** Correlation of a user’s identity across multiple independent verification sessions.
 
-**MECHANISM:** Verifiers compare credential signatures/hashes
+**MECHANISM:** Verifiers compare deterministic identifiers such as credential signatures or hashes across sessions.
+
+ ### Privacy Impact
+
+- Cross-service tracking of user activity
+- Construction of long-term behavioral profiles
+- Loss of anonymity across independent interactions
+
+### Root Cause
+
+The use of static or deterministic identifiers across presentations enables trivial linkage of sessions.
 
 ---
 
 ### Attack:  Metadata Leakage
 
-**DEFINITION:** Inferring identity through timing, IP address, device fingerprint
+**DEFINITION:** Inference of user identity through auxiliary information such as timing, IP address, or device fingerprints.
 
-**MECHANISM:** Side channels independent of credential content
+**MECHANISM:** Side-channel signals—independent of credential content—are analyzed and correlated across sessions.
+
+### Privacy Impact
+
+- Re-identification without accessing credential data
+- Location and behavior tracking
+- Linking otherwise unlinkable sessions
+
+### Root Cause
+
+Lack of network-layer and contextual privacy protections, allowing metadata to act as an identifier.
 
 ---
 
 ### Attack:  Issuer Tracking
 
-**DEFINITION:** The issuer monitors every time a credential it issued is presented
+**DEFINITION:** The issuer tracks when and where a credential it issued is presented.
 
-**MECHANISM:** Issuer-verifier back-channel / credential serial numbers
+**MECHANISM:** 
+- Back-channel communication between verifier and issuer
+- Use of credential serial numbers or identifiers
+
+### Privacy Impact
+- Global visibility of user activity by the issuer
+- Centralized tracking across all verifiers
+- Complete loss of user autonomy and anonymity
+
+### Root Cause
+
+The system design allows issuer-observable identifiers or verification dependencies, breaking issuer unlinkability.
 
 ---
 
