@@ -126,7 +126,7 @@ Suppose a user presents the same credential to a bank (Day 1) and an insurance p
 
 **Root Cause:** The credential fingerprint remains identical across multiple presentations, making the user trivially linkable across verifiers.
 
-**Security Insight**
+### Security Insight
 
 **Even without revealing explicit identity attributes, deterministic identifiers (such as static fingerprints) enable cross-system correlation and effectively break user privacy.**
 
