@@ -38,7 +38,7 @@ In such systems, verification typically requires the disclosure of complete or e
 
 This leads to a fundamental privacy issue:
 
-   **Each verification leaks unnecessary information, enabling cross-service tracking and profiling.**
+   *Each verification leaks unnecessary information, enabling cross-service tracking and profiling.*
 
 **Key Limitation**
 
