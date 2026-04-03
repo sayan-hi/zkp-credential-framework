@@ -115,16 +115,20 @@ Suppose a user interacts with multiple services (e.g., 8 services within a month
 
 ### Attack Scenario: The Correlation Attack
 
-Suppose user presents the same credential to Bank (Day 1) and Insurance (Day 5)
+Suppose a user presents the same credential to a bank (Day 1) and an insurance provider (Day 5).
 
 1. User → presents credential to Bank (Bank records: session ID #A1, timestamp, credential fingerprint FP)
 2. User → presents same credential to Insurance (Insurance records: session ID #B5, timestamp, credential fingerprint FP)
-3. Bank & Insurance share session data ("Data partnership agreement" - both institutions, same parent group)
-4. Correlation found! fingerprint FP appears in both (Same credential hash used → definitively same use)
+3. The bank and insurance provider share session data (e.g., via internal data-sharing agreements or a common parent organization).
+4. **Correlation found...** The shared data reveals that the same fingerprint appears in both records: FP<sub>Bank</sub> = FP<sub>Insurance</sub> ⇒ Both interactions are linked to the same user
 5. Profiles merged across institutions (Bank now knows: User applied for insurance. Insurance knows: User has a loan.)
-6. PRIVACY COMPROMISED (Risk scoring without consent → higher premiums, denied loan, targeted ads)
+6. Privacy Compromised (Risk scoring without consent → higher premiums or denial of services, targeted advertising and behavioral profiling)
 
-**Root Cause:** The credential fingerprint is IDENTICAL across presentations - making the user trivially linkable.
+**Root Cause:** The credential fingerprint remains identical across multiple presentations, making the user trivially linkable across verifiers.
+
+**Security Insight**
+
+**Even without revealing explicit identity attributes, deterministic identifiers (such as static fingerprints) enable cross-system correlation and effectively break user privacy.**
 
 ---
 
