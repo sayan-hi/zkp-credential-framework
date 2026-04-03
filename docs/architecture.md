@@ -153,25 +153,28 @@ This lack of binding violates the freshness, non-transferability, and context-bi
 
 To mitigate replay attacks, proofs must be bound to a specific session and verifier.
 
+
 1. **Verifier Challenge (Nonce):**
 
-The verifier generates a fresh random challenge:
+   The verifier generates a fresh random challenge:
 
-c ← {0,1}<sup>λ</sup>
+   c ← {0,1}<sup>λ</sup>
 
-where λ is the security parameter.
+   where λ is the security parameter.
+
 
 2. **Context-Bound Proof Generation:**
 
-The user generates the proof as:
+   The user generates the proof as:
 
-π = ZKP(α; c, V)
+   π = ZKP(α; c, V)
 
-where:
+   where:
 
-- c = session-specific nonce
+   - c = session-specific nonce
 
-- V = verifier identity
+   - V = verifier identity
+  
 
 3. **Security Guarantee:**
 
@@ -179,7 +182,7 @@ where:
 - Replayed presentations fail verification
 - Impersonation is prevented
 
-This ensures non-transferability and freshness of the proof.
+   This ensures non-transferability and freshness of the proof.
 
 A replay attack is not a failure of cryptography itself, but a failure of context binding. Without incorporating freshness and verifier identity into the proof, even a perfectly valid zero-knowledge proof becomes reusable—and therefore insecure.
 
