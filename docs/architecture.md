@@ -102,14 +102,14 @@ Suppose a user interacts with multiple services (e.g., 8 services within a month
 ### Privacy Risks
 
  - **Profile construction:** Aggregated interactions enable the construction of detailed user profiles
- - **Data correlation:** Information can be combined with external datasets for deeper insights
+ - **Data correlation:** Information can be combined with external datasets to derive deeper insights
  - **Data sharing and monetization:** Collected data may be shared or sold without user control
  - **Cross-system linkability:** Activities across different services can be linked and tracked
  - **Inference attacks:** Sensitive or hidden attributes can be inferred from partial disclosures
    
 ### Key Insight
 
-Repeated interactions across multiple verifiers transform small disclosures into comprehensive user profiling.
+**Repeated interactions across multiple verifiers transform small disclosures into comprehensive user profiling.**
 
 ---
 
