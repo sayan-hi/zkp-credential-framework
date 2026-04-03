@@ -183,7 +183,7 @@ To mitigate replay attacks, proofs must be bound to a specific session and verif
 - Impersonation is prevented
 
 
-  This ensures non-transferability and freshness of the proof.
+This ensures non-transferability and freshness of the proof.
 
 A replay attack is not a failure of cryptography itself, but a failure of context binding. Without incorporating freshness and verifier identity into the proof, even a perfectly valid zero-knowledge proof becomes reusable—and therefore insecure.
 
