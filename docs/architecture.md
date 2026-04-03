@@ -93,18 +93,23 @@ This model inherently violates the principle of data minimization, as it disclos
 
 ## The Multi-Verifier Nightmare
 
-Suppose user's interact with 8 services in a month - every interaction leaves a data trail
+Suppose a user interacts with multiple services (e.g., 8 services within a month). Each interaction leaves behind a traceable data footprint across systems.
 
 <p align="center">
    <img src="./images/multi_verifier_nightmere.png" width="600"/>
 </p>
 
-**PRIVACY RISKS**
- - Build detailed profile
- - Correlate with other data
- - Share or sell data
- - Link activities cross-system
- - Infer hidden attributes
+### Privacy Risks
+
+ - **Profile construction:** Aggregated interactions enable the construction of detailed user profiles
+ - **Data correlation:** Information can be combined with external datasets for deeper insights
+ - **Data sharing and monetization:** Collected data may be shared or sold without user control
+ - **Cross-system linkability:** Activities across different services can be linked and tracked
+ - **Inference attacks:** Sensitive or hidden attributes can be inferred from partial disclosures
+   
+### Key Insight
+
+Repeated interactions across multiple verifiers transform small disclosures into comprehensive user profiling.
 
 ---
 
