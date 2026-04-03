@@ -82,7 +82,7 @@ This model inherently violates the principle of data minimization, as it disclos
 
 
 
-## KEY FAILURES Conventional Systems
+## Key Failures of Conventional Systems
 
 - Cannot prevent over-disclosure (Verifier always gets more than needed)
 - Cannot prevent linkability (Credential fingerprint enables correlation)
