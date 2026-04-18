@@ -348,9 +348,9 @@ The framework operates in a distributed setting involving four primary entities:
    | Insurance Co. | Age ≥ 18 + Non-smoker  (2 bits) | Complete medical records + full health history + family conditions |
    | Job Portal | Has M.Tech degree  (1 bit: YES/NO) | Entire academic transcript + grades + institute + faculty references |
 
-  > **Observation:** The required information is minimal (often a few bits), while the disclosed data is extensive.
+  > **Observation:** The required information is minimal (often a few bits), whereas the disclosed data is extensive.
   
-  > **Data Amplification Problem:** The ratio of data required to data disclosed is typically 1:100 or worse, representing a fundamental privacy inefficiency. This is the core problem ZKP solves.
+  > **Data Amplification Problem:** The ratio of data required to data disclosed is typically 1:100 or worse, representing a fundamental privacy inefficiency. This is the core problem addressed by zero-knowledge proofs.
 
 
 
