@@ -126,6 +126,8 @@ Suppose a user presents the same credential to a bank (Day 1) and an insurance p
 
 **Root Cause:** The credential fingerprint remains identical across multiple presentations, making the user trivially linkable across verifiers.
 
+**Mitigation:** Replace static identifiers with domain-scoped pseudonyms nym = H(C, V), ensuring FP cannot be matched across verifiers.
+
 ### Security Insight
 
 **Even without revealing explicit identity attributes, deterministic identifiers (such as static fingerprints) enable cross-system correlation and effectively break user privacy.**
@@ -147,7 +149,7 @@ Let:
 
 A credential presentation is defined as:
 
-σ = (π, metadata)
+**σ = (π, nym, metadata)**
 
 where metadata may include issuer information, schema references, and credential fingerprint but does not include any session-specific randomness in this insecure design.
 
@@ -275,6 +277,8 @@ The system lacks **data isolation and unlinkability guarantees** across verifier
 
 The use of static or deterministic identifiers across presentations enables trivial linkage of sessions.
 
+**Mitigation:** Use domain-scoped pseudonyms nym = H(C, V) to prevent cross-verifier correlation.
+
 ---
 
 ### Attack:  Metadata Leakage
@@ -368,7 +372,9 @@ Let:
 - **c** denote a verifier challenge (nonce)
 - **V** denote verifier identity
 - **λ** denote the security parameter
-- **FP = H(C || c) or H(σ<sub>cred</sub>​)** denote the credential fingerprint
+- **FP = H(C || c) or H(σ<sub>cred</sub>​)** denote the credential fingerprint (session-level identifier)
+- **H** denote cryptographic hash function
+- **nym = H(C, V)** denote domain-scoped pseudonym (verifier-level identifier)
   
 The system ensures: 
 
@@ -480,7 +486,8 @@ V is the verifier identity
 - **Zero-knowledge proof generation:** Proves predicates f(α)=1 without revealing α
 - **Unlinkability support:** Generates fresh proofs π per session using c and V 
 - **Confidentiality:** Ensures that raw attributes α are never disclosed
-
+- **Domain-scoped pseudonym generation:** Computes nym = H(C, V), enabling consistent identification within a verifier domain while preventing cross-verifier linkability
+  
 **Security Properties:**
 
 - **Selective Disclosure:** Only required facts are revealed
@@ -516,6 +523,7 @@ where:
 - **Replay protection:** Ensures proof freshness using verifier-generated nonce c
 - **Context binding:** Verifies that π is bound to its identity V
 - **Decision output:** Accepts or rejects the proof without accessing α
+- **Pseudonym handling:** Uses nym to maintain session consistency within its domain without enabling cross-verifier tracking
 
 **Security Guarantees:**
 
