@@ -494,21 +494,37 @@ V is the verifier identity
 
 ### 3. Verifier
 
-The verifier Receives the ZKP verifies its mathematical validity while learning nothing beyond their validity (Gets only a YES/NO - never raw data).
+The verifier receives a zero-knowledge proof π and verifies its correctness, learning nothing beyond the validity of the claimed statement.
 
-b = Verify(vk, π, x) → {0,1}
+> The verifier obtains only a binary outcome (YES/NO) — never the underlying attribute α.
 
-Cannot extract attribute value
+**Verification Process:**
 
-Cannot link across sessions
+The verifier evaluates:
 
-- Verifies issuer signatures on commitments  
-- Validates zero-knowledge proofs for correctness and soundness  
-- Checks domain-specific pseudonyms for session consistency  
-- Enforces **replay protection** via nonce-based challenge binding  
-- Accepts or rejects proofs without accessing underlying attributes  
+**b = Verify(π, c, V) ∈ {0,1}**
 
-The verifier operates under an **honest-but-curious model**, attempting to learn additional information without deviating from the protocol.
+where:
+
+- b = 1 → proof accepted
+- b = 0 → proof rejected
+  
+**Verifier Responsibilities:**
+
+**Proof verification:** Validates the correctness and soundness of the zero-knowledge proof π
+**Signature verification:** Verifies issuer signature on the commitment C (i.e., checks σ<sub>cred</sub>)
+**Replay protection:** Ensures proof freshness using verifier-generated nonce c
+**Context binding:** Verifies that π is bound to its identity V
+**Decision output:** Accepts or rejects the proof without accessing α
+
+**Security Guarantees:**
+
+- **Zero-Knowledge:** Learns nothing about α
+- **Unlinkability:** Cannot correlate presentations across sessions
+- **Replay Resistance:** Old proofs cannot be reused due to c
+- **Soundness:** Invalid claims cannot be accepted
+
+> The verifier operates under an honest-but-curious model, it follows the protocol correctly but attempts to infer additional information from observed data.
 
 <p align="center">
    <img src="./images/protocol_flow.png" width="600"/>
