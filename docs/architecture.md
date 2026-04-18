@@ -416,20 +416,37 @@ A Zero-Knowledge Proof (ZKP) is an interactive (or non-interactive) protocol bet
 
 ### 1. Issuer
 
-The issuer is responsible for credential generation and cryptographic binding of user attributes. It does nOT participate in individual proof sessions.
+The issuer is responsible for credential generation and cryptographic binding of user attributes. It does not participate in individual proof (presentation) sessions.
 
-σ = Sign(sk, attrs)
+**Credential Issuance:**
 
-One-time issuance, offline
+The issuer generates a credential:
 
-e.g. Aadhaar Authority, University
+σ = Sign(sk, C)
 
-- Constructs **Pedersen commitments** \( C = g^m h^r \) ensuring hiding and binding  
-- Signs commitments using a **Schnorr signature scheme**  
-- Issues **verifiable credentials (VCs)** bound to committed attributes  
-- Guarantees authenticity and integrity without revealing underlying data  
+where:
 
-The issuer acts as a root of trust, whose correctness is assumed but whose visibility into user activity is minimized.
+**sk** is the issuer’s signing key
+**C = g<sup>α</sup> h<sup>β</sup>** is a commitment to the user’s attributes
+
+> Issuance is a one-time process and can be performed offline.
+
+Examples: Aadhaar Authority, Universities, Employers
+
+**Issuer Responsibilities:**
+
+- Constructs **Pedersen commitments** \( C = g^α h^β \) ensuring hiding (privacy) and binding (integrity)
+- Signs the commitment C using a secure signature scheme (e.g., Schnorr)
+- Issues a verifiable credential (VC) bound to the committed attributes
+- Guarantees authenticity and integrity without revealing the underlying attributes α
+
+**Security Properties:**
+
+- **Issuer does not learn usage patterns:** No involvement in presentation phase, no tracking
+- **Attribute privacy preserved:** Only commitments C are signed, not raw attributes
+- **Unforgeability:** Credentials cannot be created without the issuer’s secret key
+  
+> The issuer acts as a root of trust, whose correctness is assumed but whose visibility into user activity is strictly minimized.
 
 ---
 
