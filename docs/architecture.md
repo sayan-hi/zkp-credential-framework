@@ -368,6 +368,7 @@ Let:
 - **c** denote a verifier challenge (nonce)
 - **V** denote verifier identity
 - **λ** denote the security parameter
+- **FP = H(C || c) or H(σ<sub>cred</sub>​)** denote the credential fingerprint
   
 The system ensures: 
 
@@ -422,9 +423,11 @@ The issuer is responsible for credential generation and cryptographic binding of
 
 The issuer generates a credential:
 
-σ = Sign(sk, C)
+σ<sub>cred</sub> = Sign(sk, C)
 
 where:
+
+**σ<sub>cred</sub>** is issued credential (signed commitment)
 
 **sk** is the issuer’s signing key
 
