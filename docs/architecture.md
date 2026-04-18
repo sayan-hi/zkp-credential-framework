@@ -427,6 +427,7 @@ The issuer generates a credential:
 where:
 
 **sk** is the issuer’s signing key
+
 **C = g<sup>α</sup> h<sup>β</sup>** is a commitment to the user’s attributes
 
 > Issuance is a one-time process and can be performed offline.
@@ -435,7 +436,7 @@ Examples: Aadhaar Authority, Universities, Employers
 
 **Issuer Responsibilities:**
 
-- Constructs **Pedersen commitments** \( C = g^α h^β \) ensuring hiding (privacy) and binding (integrity)
+- Constructs **Pedersen commitments** (C = g<sup>α</sup> h<sup>β</sup>) ensuring hiding (privacy) and binding (integrity)
 - Signs the commitment C using a secure signature scheme (e.g., Schnorr)
 - Issues a verifiable credential (VC) bound to the committed attributes
 - Guarantees authenticity and integrity without revealing the underlying attributes α
