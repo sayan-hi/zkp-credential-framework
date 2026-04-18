@@ -456,21 +456,39 @@ Examples: Aadhaar Authority, Universities, Employers
 
 ### 2. Holder (Prover)
 
-Holds the credential. Generates a ZKP to prove a specific predicate without revealing the underlying value.
+The holder possesses the issued credential and generates zero-knowledge proofs to demonstrate specific predicates over the secret attribute α, without revealing its value.
 
-π = Prove(pk, witness, x)
+**Proof Generation:**
 
-Chooses WHICH predicate to prove
+The holder generates a proof:
 
-Controls entire disclosure
+π=ZKP(α;c,V)
 
-- Securely stores credentials and associated secrets  
-- Generates **non-interactive zero-knowledge proofs** via the Fiat–Shamir transformation  
-- Proves predicates \( f(m) = 1 \) without revealing \( m \)  
-- Derives **domain-scoped pseudonyms** to prevent cross-verifier correlation  
-- Ensures full confidentiality of raw attributes  
+where:
 
-The holder retains complete control over disclosure, addressing limitations of traditional identity systems.
+α is the secret attribute
+c is the verifier’s nonce
+V is the verifier identity
+
+> Proofs are made non-interactive using the Fiat–Shamir transformation.
+
+**Holder Capabilities:**
+
+- **Selective disclosure:** Chooses which predicate over α to prove (e.g., α > 18)
+- **Full control over disclosure:** Determines exactly what information is revealed
+- **Secure storage:** Stores σ<sub>cred</sub>, α, and β securely
+- **Zero-knowledge proof generation:** Proves predicates f(α)=1 without revealing α
+- **Unlinkability support:** Generates fresh proofs π per session using c and V 
+- **Confidentiality:** Ensures that raw attributes α are never disclosed
+
+**Security Properties:**
+
+- **Selective Disclosure:** Only required facts are revealed
+- **Unlinkability:** Different presentations cannot be correlated
+- **Replay Resistance:** Proofs are bound to c and V
+- **Privacy Preservation:** No leakage of α
+
+> The holder acts as the privacy control point of the system, no information is revealed unless explicitly proven via π.
 
 ---
 
