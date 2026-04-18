@@ -393,19 +393,23 @@ A privacy-preserving credential system must satisfy the following fundamental re
 ## ZKP: Formal Definition & Three Properties
 
 **DEFINITION:**
-A ZKP is a protocol between Prover (P) and Verifier (V) whereby P proves a statement x ∈ L is TRUE without revealing any information beyond the truth of that statement.
+A Zero-Knowledge Proof (ZKP) is an interactive (or non-interactive) protocol between a Prover (P) and a Verifier (V), whereby the prover convinces the verifier that a statement **x ∈ L** is true, without revealing any information beyond the validity of the statement.
 
-- **COMPLETENESS:** If the statement is TRUE, an honest prover can always convince an honest verifier.
+- **COMPLETENESS:** If the statement **x∈L** is true, an honest prover P can convince an honest verifier V with probability 1:
 
   Pr[V accepts P(x)] = 1
   
-- **SOUNDNESS:** If the statement is FALSE, no cheating prover can convince the verifier (except negligible probability).
+- **SOUNDNESS:** If the statement is false, no cheating prover P<sup>∗</sup> can convince the verifier, except with negligible probability ε:
 
   Pr[V accepts P*(x)] ≤ ε
-  
-- **ZERO-KNOWLEDGE:** The verifier learns NOTHING beyond the yes/no answer - the transcript can be simulated without the witness.
 
-  View_V(P,x) ≡ Sim(x)
+  where ε is negligible in the security parameter λ.
+  
+- **ZERO-KNOWLEDGE:** The verifier learns nothing beyond the truth of the statement. Formally, there exists a simulator Sim such that:
+
+  View<sub>V</sub>(P,x) ≈ Sim(x)
+
+  i.e., the verifier’s view during the interaction is computationally indistinguishable from a simulated transcript generated without access to the witness.
    
 
 ## Core Components
