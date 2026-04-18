@@ -316,29 +316,31 @@ The system design allows issuer-observable identifiers or verification dependenc
 
 ## System Model
 
-The framework operates in a distributed setting involving four entities:
+The framework operates in a distributed setting involving four primary entities:
 
-- **Issuer**: An authority that attests to and vouches for the truth of a holder's attributes by signing them cryptographically (TRUSTED authority whose attestation carries cryptographic weight).
+- **Issuer**: An authority that attests to and vouches for the correctness of a holder’s attributes by issuing cryptographically signed credentials.
+
+> The issuer is a trusted authority, whose attestations carry verifiable cryptographic integrity.
 
   **Examples:**
 
     - Government (Aadhaar, PAN Card, Passport)
     - University (Degree certificates, transcripts)
     - Employer (Employment proof, salary slips)
-    - Bank (Income statements, KYC)
+    - Bank (Income statements, KYC records)
 
-- **Holder (Prover)**: The individual who possesses identity attributes and must prove specific claims about them to various verifying parties.
-
+- **Holder (Prover)**: The individual who possesses private attributes α and must prove specific claims about them to verifiers using zero-knowledge proofs.
+  
   **KEY CHALLENGES USER FACES:**
 
-     - Must share MORE data than the verifier actually needs
-     - Cannot control what the verifier does with her data
-     - Same sensitive data repeated to EVERY verifier
-     - No technical guarantee against data misuse or re-sharing
+   - **Over-disclosure:** Must reveal more information than required
+   - **Loss of control:** Cannot control storage, reuse, or sharing of disclosed data
+   - **Repeated exposure:** Same sensitive attributes shared across multiple verifiers
+   - **No misuse guarantees:** No cryptographic protection against data aggregation or re-sharing
 
-- **Verifier**: Entities that need to verify specific claims about the holder - but each only NEEDS specific information, yet receives everything. verifier only NEEDS specific information...but they GET everything.
+- **Verifier**: Entities that need to validate specific predicates over user attributes (e.g., α>18), but in conventional systems receive excessive information.
 
-   **Here's the disparity:**
+   **Here's the disparity: Required vs. Disclosed Information**
 
    | VERIFIER | WHAT THEY NEED | WHAT THEY GET |
    |----------|----------------|---------------|
@@ -346,21 +348,34 @@ The framework operates in a distributed setting involving four entities:
    | Insurance Co. | Age ≥ 18 + Non-smoker  (2 bits) | Complete medical records + full health history + family conditions |
    | Job Portal | Has M.Tech degree  (1 bit: YES/NO) | Entire academic transcript + grades + institute + faculty references |
 
-   **Data Needed vs. Data Shared Ratio - typically 1:100 or worse. This is the core problem ZKP solves.**
+  > **Observation:** The required information is minimal (often a few bits), while the disclosed data is extensive.
+  > **Data Amplification Problem:** The ratio of data required to data disclosed is typically 1:100 or worse, representing a fundamental privacy inefficiency. This is the core problem ZKP solves.
 
 
 
-       
-- **Revocation Authority**: Maintains revocation state  
+- **Revocation Authority**: An entity responsible for maintaining the revocation state of credentials (e.g., revoked, expired, or invalid credentials).
 
+**Cryptographic Model**
 
 Let:
-- \( m \) denote user attributes  
-- \( C = Commit(m, r) \) be a commitment  
-- \( π \) denote a zero-knowledge proof  
 
-The system ensures correctness and privacy for all interactions between these entities under adversarial conditions.
+- **α** denote the user’s secret attributes
+- **β** denote randomness
+- **C = g<sup>α</sup> h<sup>β</sup>** be a commitment
+- **π** denote a zero-knowledge proof generated from C
+- **σ** denote a credential presentation
+- **c** denote a verifier challenge (nonce)
+- **V** denote verifier identity
+- **λ** denote the security parameter
+  
+The system ensures: correctness and privacy for all interactions between these entities under adversarial conditions.
 
+- **Correctness:** Only valid statements about α are accepted
+- **Privacy (Zero-Knowledge):** No additional information about α is revealed
+- **Unlinkability:** Presentations σ across sessions cannot be correlated
+- **Replay Resistance:** Proofs π are bound to c and V
+- **Collusion Resistance:** Independent verifiers cannot combine data to reconstruct full profiles
+  
 ---
 
 ### What Would a Proper Solution Look Like?
