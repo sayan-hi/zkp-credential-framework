@@ -511,11 +511,11 @@ where:
   
 **Verifier Responsibilities:**
 
-**Proof verification:** Validates the correctness and soundness of the zero-knowledge proof π
-**Signature verification:** Verifies issuer signature on the commitment C (i.e., checks σ<sub>cred</sub>)
-**Replay protection:** Ensures proof freshness using verifier-generated nonce c
-**Context binding:** Verifies that π is bound to its identity V
-**Decision output:** Accepts or rejects the proof without accessing α
+- **Proof verification:** Validates the correctness and soundness of the zero-knowledge proof π
+- **Signature verification:** Verifies issuer signature on the commitment C (i.e., checks σ<sub>cred</sub>)
+- **Replay protection:** Ensures proof freshness using verifier-generated nonce c
+- **Context binding:** Verifies that π is bound to its identity V
+- **Decision output:** Accepts or rejects the proof without accessing α
 
 **Security Guarantees:**
 
