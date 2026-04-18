@@ -381,12 +381,15 @@ The system ensures:
 
 ### What Would a Proper Solution Look Like?
 
-- Prove a FACT without revealing the underlying data
-- Present to multiple verifiers without being LINKED
-- Withstand honest-but-curious adversaries
-- Remain private EVEN if verifiers collude
+A privacy-preserving credential system must satisfy the following fundamental requirements:
+
+- **Selective Disclosure:** The system must allow a user to prove a specific fact about α (e.g., α>18) without revealing the underlying attribute.
+- **Unlinkability:** Credential presentations σ across multiple verifiers must be cryptographically unlinkable, preventing correlation across sessions.
+- **Adversarial Robustness:** The system must remain secure against honest-but-curious verifiers who follow the protocol but attempt to infer additional information.
+- **Collusion Resistance:** Privacy must be preserved even if multiple verifiers collude and share data, ensuring no reconstruction of the full attribute set.
 
 ---
+
 ## ZKP: Formal Definition & Three Properties
 
 **DEFINITION:**
