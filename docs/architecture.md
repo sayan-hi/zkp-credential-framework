@@ -399,7 +399,7 @@ A Zero-Knowledge Proof (ZKP) is an interactive (or non-interactive) protocol bet
 
   Pr[V accepts P(x)] = 1
   
-- **SOUNDNESS:** If the statement is false, no cheating prover P<sup>∗</sup> can convince the verifier, except with negligible probability ε:
+- **SOUNDNESS:** If the statement is false, no cheating prover P<sup>*</sup> can convince the verifier, except with negligible probability ε:
 
   Pr[V accepts P*(x)] ≤ ε
 
