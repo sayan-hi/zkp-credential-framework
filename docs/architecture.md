@@ -355,7 +355,7 @@ The framework operates in a distributed setting involving four primary entities:
 
 - **Revocation Authority**: An entity responsible for maintaining the revocation state of credentials (e.g., revoked, expired, or invalid credentials).
 
-**Cryptographic Model**
+## Cryptographic Model
 
 Let:
 
@@ -368,7 +368,7 @@ Let:
 - **V** denote verifier identity
 - **λ** denote the security parameter
   
-The system ensures: correctness and privacy for all interactions between these entities under adversarial conditions.
+The system ensures: 
 
 - **Correctness:** Only valid statements about α are accepted
 - **Privacy (Zero-Knowledge):** No additional information about α is revealed
