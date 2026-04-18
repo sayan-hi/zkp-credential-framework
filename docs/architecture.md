@@ -462,7 +462,7 @@ The holder possesses the issued credential and generates zero-knowledge proofs t
 
 The holder generates a proof:
 
-π=ZKP(α;c,V)
+**π = ZKP(α; c, V)**
 
 where:
 
