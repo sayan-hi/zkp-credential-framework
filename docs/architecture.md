@@ -320,14 +320,14 @@ The framework operates in a distributed setting involving four primary entities:
 
 - **Issuer**: An authority that attests to and vouches for the correctness of a holder’s attributes by issuing cryptographically signed credentials.
 
-> The issuer is a trusted authority, whose attestations carry verifiable cryptographic integrity.
+  > The issuer is a trusted authority, whose attestations carry verifiable cryptographic integrity.
 
-  **Examples:**
+    **Examples:**
 
-    - Government (Aadhaar, PAN Card, Passport)
-    - University (Degree certificates, transcripts)
-    - Employer (Employment proof, salary slips)
-    - Bank (Income statements, KYC records)
+      - Government (Aadhaar, PAN Card, Passport)
+      - University (Degree certificates, transcripts)
+      - Employer (Employment proof, salary slips)
+      - Bank (Income statements, KYC records)
 
 - **Holder (Prover)**: The individual who possesses private attributes α and must prove specific claims about them to verifiers using zero-knowledge proofs.
   
@@ -349,6 +349,7 @@ The framework operates in a distributed setting involving four primary entities:
    | Job Portal | Has M.Tech degree  (1 bit: YES/NO) | Entire academic transcript + grades + institute + faculty references |
 
   > **Observation:** The required information is minimal (often a few bits), while the disclosed data is extensive.
+  
   > **Data Amplification Problem:** The ratio of data required to data disclosed is typically 1:100 or worse, representing a fundamental privacy inefficiency. This is the core problem ZKP solves.
 
 
